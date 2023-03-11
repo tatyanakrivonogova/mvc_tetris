@@ -4,40 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5500570f-2fc7-4b20-9a65-3f3fed385f1d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab3.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exceptions/factoryexceptions/ConfigFileNotFound.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exceptions/factoryexceptions/FactoryException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exceptions/factoryexceptions/FigureTemplateClassNotFound.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exceptions/factoryexceptions/UnknownFigureTemplate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Block.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Figure.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Model.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/factory/Configuration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/factory/Factory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/figuretemplates/FigureTemplate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/figuretemplates/IFigure.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/figuretemplates/JFigure.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/figuretemplates/LFigure.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/figuretemplates/OFigure.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/figuretemplates/SFigure.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/figuretemplates/TFigure.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/figuretemplates/ZFigure.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/Canvas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/GUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/View.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
+    <list default="true" id="5500570f-2fc7-4b20-9a65-3f3fed385f1d" name="Changes" comment="something works">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Model.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +81,19 @@
       <option name="presentableId" value="Default" />
       <updated>1678008353889</updated>
     </task>
+    <task id="LOCAL-00001" summary="something works">
+      <created>1678553141584</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678553141584</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="something works" />
+    <option name="LAST_COMMIT_MESSAGE" value="something works" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -10,14 +10,14 @@ public class Controller {
     final int FIELD_WIDTH = 10;
     final int FIELD_HEIGHT = 18;
     final int[] SCORES = {100, 300, 700, 1500};
-    boolean gameOver = false;
+    //boolean gameOver = false;
     final int SHOW_DELAY = 400;
     public Controller(Model _game, View _view) {
         game = _game;
         view = _view;
     }
     public void go() throws FactoryException {
-        while (!gameOver) {
+        while (!game.isGameOver()) {
             try {
                 Thread.sleep(SHOW_DELAY);
             } catch (Exception e) { e.printStackTrace(); }
@@ -26,7 +26,8 @@ public class Controller {
             if (game.getCurrentFigure().isTouchGround()) {
                 game.getCurrentFigure().leaveOnTheGround();
                 game.createNewFigure();
-                gameOver = game.getCurrentFigure().isCrossGround();
+                //gameOver = game.getCurrentFigure().isCrossGround();
+                game.setGameOver(game.getCurrentFigure().isCrossGround());
             } else
                 game.getCurrentFigure().stepDown();
         }

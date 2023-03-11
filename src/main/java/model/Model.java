@@ -27,6 +27,9 @@ public class Model {
     public void setGameScore(int score) {
         gameScore = score;
     }
+    public void setGameOver(boolean value) {
+        gameOver = value;
+    }
     public boolean isGameOver() {
         return gameOver;
     }
