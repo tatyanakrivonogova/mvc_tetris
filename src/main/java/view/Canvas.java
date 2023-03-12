@@ -1,5 +1,6 @@
 package view;
 
+import model.Block;
 import model.Model;
 
 import javax.swing.*;
@@ -9,6 +10,7 @@ class Canvas extends JPanel {
     final int FIELD_WIDTH = 10;
     final int FIELD_HEIGHT = 18;
     final int BLOCK_SIZE = 25;
+    final static int ROUNDING = 6;
 
     Model game;
     final int[][] GAME_OVER_MSG = {
@@ -47,7 +49,13 @@ class Canvas extends JPanel {
             for (int y = 0; y < GAME_OVER_MSG.length; y++)
                 for (int x = 0; x < GAME_OVER_MSG[y].length; x++)
                     if (GAME_OVER_MSG[y][x] == 1) g.fill3DRect(x*11+18, y*11+160, 10, 10, true);
-        } else
-            game.getCurrentFigure().paint(g);
+        } else {
+            //game.getCurrentFigure().paint(g);
+            g.setColor(new Color(game.getCurrentFigure().getColor()));
+            for (Block block : game.getCurrentFigure().getFigure()) {
+                //block.paint(g, color);
+                g.drawRoundRect(block.getX() * BLOCK_SIZE + 1, block.getY() * BLOCK_SIZE + 1, BLOCK_SIZE - 2, BLOCK_SIZE - 2, ROUNDING, ROUNDING);
+            }
+        }
     }
 }

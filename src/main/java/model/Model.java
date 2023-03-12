@@ -14,7 +14,7 @@ public class Model {
     boolean gameOver = false;
     public Model() throws FactoryException {
         Factory.getInstance();
-        Arrays.fill(field[FIELD_HEIGHT], 1);
+        Arrays.fill(field[FIELD_HEIGHT], 1); //the invisible floor is full
         createNewFigure();
     }
     public int[][] getField() {
