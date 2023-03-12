@@ -5,10 +5,10 @@ import model.Model;
 import view.View;
 
 import javax.swing.*;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class Controller extends JFrame {
+public class Controller extends JFrame implements KeyListener {
     private final Model game;
     private final View view;
     final int FIELD_WIDTH = 10;
@@ -22,18 +22,9 @@ public class Controller extends JFrame {
     public Controller(Model _game, View _view) {
         game = _game;
         view = _view;
+        view.addListener(this);
     }
     public void go() throws FactoryException {
-//        addKeyListener(new KeyAdapter() {
-//            public void keyPressed(KeyEvent e) {
-//                if (!game.isGameOver()) {
-//                    if (e.getKeyCode() == DOWN) game.getCurrentFigure().drop();
-//                    if (e.getKeyCode() == UP) game.getCurrentFigure().rotate();
-//                    if (e.getKeyCode() == LEFT || e.getKeyCode() == RIGHT) game.getCurrentFigure().move(e.getKeyCode());
-//                }
-//                view.update(game.getField(), game.isGameOver(), game.getCurrentFigure());
-//            }
-//        });
         while (!game.isGameOver()) {
             try {
                 Thread.sleep(SHOW_DELAY);
@@ -75,4 +66,20 @@ public class Controller extends JFrame {
             view.changeTitle("TETRIS" + " : " + game.getGameScore());
         }
     }
+
+    @Override
+    public void keyTyped(KeyEvent e) {}
+
+    public void keyPressed(KeyEvent e) {
+        if (!game.isGameOver()) {
+            if (e.getKeyCode() == DOWN) game.getCurrentFigure().drop();
+            if (e.getKeyCode() == UP) game.getCurrentFigure().rotate();
+            if (e.getKeyCode() == LEFT || e.getKeyCode() == RIGHT) game.getCurrentFigure().move(e.getKeyCode());
+        }
+        view.update(game.getField(), game.isGameOver(), game.getCurrentFigure());
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {}
+
 }

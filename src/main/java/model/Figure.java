@@ -136,8 +136,4 @@ public class Figure {
             rotateShape(LEFT);
         }
     }
-
-//    public void paint(Graphics g) {
-//        for (Block block : figure) block.paint(g, color);
-//    }
 }

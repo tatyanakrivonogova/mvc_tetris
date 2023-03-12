@@ -5,6 +5,7 @@ import model.Model;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyListener;
 
 public class TUI extends JFrame implements View {
     final int BLOCK_SIZE = 25;
@@ -13,10 +14,6 @@ public class TUI extends JFrame implements View {
     final int START_LOCATION = 180;
     final int FIELD_DX = 15;
     final int FIELD_DY = 37;
-    final int LEFT = 37;
-    final int UP = 38;
-    final int RIGHT = 39;
-    final int DOWN = 40;
     private final Canvas canvas;
     Model game;
     public TUI(Model _game) {
@@ -58,5 +55,10 @@ public class TUI extends JFrame implements View {
     @Override
     public void changeTitle(String title) {
         setTitle(title);
+    }
+
+    @Override
+    public void addListener(KeyListener l) {
+        addKeyListener(l);
     }
 }
