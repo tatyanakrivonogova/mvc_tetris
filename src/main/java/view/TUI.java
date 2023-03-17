@@ -63,6 +63,11 @@ public class TUI extends JTextField implements View {
     }
 
     @Override
+    public void showExit() {
+
+    }
+
+    @Override
     public void changeTitle(String _title) {
         title = _title;
     }
@@ -70,6 +75,11 @@ public class TUI extends JTextField implements View {
     @Override
     public void addListener(KeyListener l) {
         addKeyListener(l);
+    }
+
+    @Override
+    public void setGame(Model g) {
+
     }
 
     @Override

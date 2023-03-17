@@ -20,11 +20,19 @@ public class Model {
     private boolean loopOver = false;
     final int[] SCORES = {100, 300, 700, 1500};
     View view;
-    public Model() throws FactoryException {
+    public Model() {
         //view = _view;
-        Factory.getInstance();
+        try {
+            Factory.getInstance();
+        } catch (FactoryException e) {
+            System.out.println(e.getMessage());
+        }
         Arrays.fill(field[FIELD_HEIGHT], 1); //the invisible floor is full
-        createNewFigure();
+        try {
+            createNewFigure();
+        } catch (FactoryException e) {
+            System.out.println(e.getMessage());
+        }
     }
     public void setView(View _view) {
         view = _view;
@@ -49,6 +57,7 @@ public class Model {
         currentFigure = new Figure(field);
     }
     public void go() throws FactoryException {
+        gameOver = false;
         gameState = true;
         while (!gameOver) {
             try {
@@ -117,13 +126,13 @@ public class Model {
         gameState = true;
     }
     public void restart() throws FactoryException {
-        //gameOver = true;
         Arrays.fill(field[FIELD_HEIGHT], 1); //the invisible floor is full
         for (int i = 0; i < FIELD_HEIGHT; ++i) {
             Arrays.fill(field[i], 0);
         }
         createNewFigure();
         if (loopOver) {
+            gameOver = false;
             loopOver = false;
             go();
         }

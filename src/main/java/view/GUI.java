@@ -6,8 +6,6 @@ import model.Model;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 
 public class GUI extends JFrame implements View {
@@ -19,7 +17,7 @@ public class GUI extends JFrame implements View {
     final int START_LOCATION = 180;
     final int FIELD_DX = 15;
     final int FIELD_DY = 15;
-    private Canvas canvas;
+    private MyCanvas canvas;
     JPanel panel = new JPanel();
     Model game;
     Controller controller;
@@ -27,7 +25,7 @@ public class GUI extends JFrame implements View {
     public GUI(Model _game) {
         super();
         game = _game;
-        canvas = new Canvas(game);
+        canvas = new MyCanvas(game);
 
         setTitle("TETRIS 0");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -62,6 +60,7 @@ public class GUI extends JFrame implements View {
         });
         buttonNewGame.addActionListener(e -> {
             controller.clickButtonNewGame();
+            panel.revalidate();
             buttonNewGame.setFocusable(false);
         });
         buttonExit.addActionListener(e -> {
@@ -92,6 +91,17 @@ public class GUI extends JFrame implements View {
     public void setController(Controller _controller) {
         controller = _controller;
     }
+    public void setGame(Model _game) {
+        game = _game;
+        canvas.setGame(game);
+        panel.setFocusable(true);
+        canvas.setVisible(true);
+
+//        add(canvas);
+//        add(panel);
+        pack();
+        setVisible(true);
+    }
     public void addListener(KeyListener _l) {
         panel.addKeyListener(_l);
     }
@@ -105,7 +115,7 @@ public class GUI extends JFrame implements View {
     }
     @Override
     public void clear() {
-        canvas = new Canvas(game);
+        canvas = new MyCanvas(game);
         add(canvas);
         //canvas.repaint();
     }
@@ -134,6 +144,11 @@ public class GUI extends JFrame implements View {
     }
     public void showNewGame() {
         String message = "Let's start new game!";
+        JOptionPane.showMessageDialog(new JFrame(), message, "New game",
+                JOptionPane.INFORMATION_MESSAGE);
+    }
+    public void showExit() {
+        String message = "Your result: " + game.getGameScore();
         JOptionPane.showMessageDialog(new JFrame(), message, "New game",
                 JOptionPane.INFORMATION_MESSAGE);
     }

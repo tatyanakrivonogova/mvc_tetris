@@ -5,12 +5,15 @@ import model.Model;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-class Canvas extends JPanel {
+class MyCanvas extends JPanel {
     final int FIELD_WIDTH = 10;
     final int FIELD_HEIGHT = 18;
     final int BLOCK_SIZE = 25;
     final static int ROUNDING = 6;
+//    Timer t = new Timer(20,this);
 
     Model game;
     final int[][] GAME_OVER_MSG = {
@@ -26,7 +29,8 @@ class Canvas extends JPanel {
             {1,0,0,1,0,1,0,1,0,0,1,1,1,1,0,1,1,1,0,0},
             {1,0,0,1,0,1,1,0,0,0,1,0,0,0,0,1,0,0,1,0},
             {0,1,1,0,0,1,0,0,0,0,0,1,1,0,0,1,0,0,1,0}};
-    Canvas(Model _game) {
+    MyCanvas(Model _game) {
+//        t.start();
         game = _game;
     }
     @Override
@@ -62,4 +66,12 @@ class Canvas extends JPanel {
             }
         }
     }
+    public void setGame(Model _game) {
+        game = _game;
+    }
+
+//    @Override
+//    public void actionPerformed(ActionEvent e) {
+//        repaint();
+//    }
 }

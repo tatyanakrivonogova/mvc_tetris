@@ -11,7 +11,7 @@ import java.awt.event.KeyListener;
 import static java.lang.System.exit;
 
 public class Controller extends JFrame implements KeyListener {
-    private final Model game;
+    private Model game;
     private final View view;
     final int LEFT = 37;
     final int UP = 38;
@@ -58,18 +58,28 @@ public class Controller extends JFrame implements KeyListener {
     }
 
     public void clickButtonNewGame() {
-        game.pause();
+//        game.pause();
+//        try {
+//            game.restart();
+//        } catch (FactoryException ex) {
+//            System.out.println(ex.getMessage());
+//            exit(0);
+//        }
+        game.finish();
+        game = new Model();
+        game.setView(view);
+        view.setGame(game);
         try {
-            game.restart();
-        } catch (FactoryException ex) {
-            System.out.println(ex.getMessage());
-            exit(0);
+            game.go();
+        } catch (FactoryException e) {
+            System.out.println(e.getMessage());
         }
         view.showNewGame();
-        game.resume();
+//        game.resume();
     }
 
     public void clickButtonExit() {
         game.finish();
+        view.showExit();
     }
 }
