@@ -4,10 +4,16 @@ import model.Model;
 import view.GUI;
 import view.View;
 public class Main {
-    public static void main(String[] args) throws FactoryException {
-        Model game = new Model();
-        View view = new GUI(game);
-        Controller controller = new Controller(game, view);
-        controller.go();
+    public static void main(String[] args) {
+        try {
+            Model game = new Model();
+            View view = new GUI(game);
+            game.setView(view);
+            Controller controller = new Controller(game, view);
+            view.setController(controller);
+            controller.go();
+        } catch (FactoryException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

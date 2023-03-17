@@ -32,8 +32,14 @@ class Canvas extends JPanel {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-        for (int x = 0; x < FIELD_WIDTH; x++)
-            for (int y = 0; y < FIELD_HEIGHT; y++) {
+        g.setColor(Color.lightGray);
+        g.drawLine(0, BLOCK_SIZE, (FIELD_WIDTH)*BLOCK_SIZE, BLOCK_SIZE);
+        g.drawLine(0, BLOCK_SIZE, 0, (FIELD_HEIGHT)*BLOCK_SIZE);
+        g.drawLine((FIELD_WIDTH)*BLOCK_SIZE, BLOCK_SIZE, (FIELD_WIDTH)*BLOCK_SIZE, (FIELD_HEIGHT)*BLOCK_SIZE);
+        g.drawLine(0, (FIELD_HEIGHT)*BLOCK_SIZE, (FIELD_WIDTH)*BLOCK_SIZE, (FIELD_HEIGHT)*BLOCK_SIZE);
+
+        for (int x = 0; x < FIELD_WIDTH; ++x)
+            for (int y = 1; y < FIELD_HEIGHT; ++y) {
                 if (x < FIELD_WIDTH - 1 && y < FIELD_HEIGHT - 1) {
                     g.setColor(Color.lightGray);
                     g.drawLine((x+1)*BLOCK_SIZE-2, (y+1)*BLOCK_SIZE, (x+1)*BLOCK_SIZE+2, (y+1)*BLOCK_SIZE);
@@ -46,8 +52,8 @@ class Canvas extends JPanel {
             }
         if (game.isGameOver()) {
             g.setColor(Color.white);
-            for (int y = 0; y < GAME_OVER_MSG.length; y++)
-                for (int x = 0; x < GAME_OVER_MSG[y].length; x++)
+            for (int y = 0; y < GAME_OVER_MSG.length; ++y)
+                for (int x = 0; x < GAME_OVER_MSG[y].length; ++x)
                     if (GAME_OVER_MSG[y][x] == 1) g.fill3DRect(x*11+18, y*11+160, 10, 10, true);
         } else {
             g.setColor(new Color(game.getCurrentFigure().getColor()));
