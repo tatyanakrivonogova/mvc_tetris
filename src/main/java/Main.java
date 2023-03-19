@@ -6,10 +6,10 @@ import view.View;
 public class Main {
     public static void main(String[] args) {
         Controller controller = new Controller();
-        View view = new GUI(controller);
+        View view = new TUI(controller);
         Model game = new Model(view);
         controller.setGame(game);
 
-        controller.go();
+        //controller.go();
     }
 }

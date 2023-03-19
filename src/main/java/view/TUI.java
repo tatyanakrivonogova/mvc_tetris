@@ -62,8 +62,9 @@ public class TUI implements View {
         for (int i = 0; i < FIELD_WIDTH*2; ++i) System.out.print('_');
         System.out.print('|');
 //        if (scan.hasNext()) {
+        if (!scan.hasNext()) return;
         String input = scan.nextLine();
-        if (Objects.equals(input, "")) return;
+        //if (Objects.equals(input, null)) return;
         if (Objects.equals(input, "x")) controller.down();
         if (Objects.equals(input, "w")) controller.up();
         if (Objects.equals(input, "a")) controller.left();

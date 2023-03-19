@@ -126,6 +126,7 @@ public class GUI extends JFrame implements View {
     }
     public String getName() {
         String name = JOptionPane.showInputDialog("Enter your name");
+        if (name == null) return "";
         name = (name.length() > NAME_LIMIT) ? name.substring(0, NAME_LIMIT) : name;
         return name;
     }

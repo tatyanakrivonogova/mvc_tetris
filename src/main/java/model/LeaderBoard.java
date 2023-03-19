@@ -1,7 +1,6 @@
 package model;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Objects;
 import java.util.Properties;
 
 public class LeaderBoard {
@@ -20,7 +19,7 @@ public class LeaderBoard {
     public Properties getProperties() {
         return properties;
     }
-    public boolean checkRecord(String name, int score) {
-        return Objects.equals(properties.getProperty(name), String.valueOf(score));
+    public boolean badRecord(String name, int score) {
+        return name == null || name.equals("") || (properties.getProperty(name) != null && (Integer.parseInt(properties.getProperty(name)) >= score));
     }
 }

@@ -4,15 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5500570f-2fc7-4b20-9a65-3f3fed385f1d" name="Changes" comment="simple tui without reaction on keys">
+    <list default="true" id="5500570f-2fc7-4b20-9a65-3f3fed385f1d" name="Changes" comment="fixed length of name in leader board, added confirm panels for new game and exit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/LeaderBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/LeaderBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Model.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/LeaderBoardAdder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LeaderBoardAdder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/TUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/TUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/View.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/leaderboard.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/leaderboard.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -203,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679216912227</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fixed length of name in leader board, added confirm panels for new game and exit">
+      <created>1679228815880</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1679228815880</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -268,7 +275,8 @@
     <MESSAGE value="added changing of leader board and deleting repeats" />
     <MESSAGE value="new class for creating leader board" />
     <MESSAGE value="simple tui without reaction on keys" />
-    <option name="LAST_COMMIT_MESSAGE" value="simple tui without reaction on keys" />
+    <MESSAGE value="fixed length of name in leader board, added confirm panels for new game and exit" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed length of name in leader board, added confirm panels for new game and exit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -280,13 +288,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/model/Model.java</url>
-          <line>118</line>
+          <line>157</line>
           <option name="timeStamp" value="101" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/model/Model.java</url>
-          <line>119</line>
+          <line>158</line>
           <option name="timeStamp" value="102" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/LeaderBoard.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="109" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

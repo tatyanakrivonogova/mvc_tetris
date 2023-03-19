@@ -6,6 +6,8 @@ import view.LeaderBoardAdder;
 import view.View;
 
 import java.util.Arrays;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Model {
     final int FIELD_WIDTH = 10;
@@ -23,6 +25,7 @@ public class Model {
     LeaderBoard leaderBoard;
     LeaderBoardAdder leaderBoardAdder = new LeaderBoardAdder();
     View view;
+    Timer timer = new Timer();
     public Model(View _view) {
         view = _view;
         leaderBoard = new LeaderBoard();
@@ -35,6 +38,42 @@ public class Model {
         } catch (FactoryException e) {
             System.out.println(e.getMessage());
         }
+        gameState = true;
+        gameOver = false;
+
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                if (exit) System.exit(0);
+
+                try {
+                    Thread.sleep(SHOW_DELAY);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                if (!gameState) return;
+                view.update(field, gameOver, currentFigure, gameScore, gameState);
+                if (gameOver) return;
+                checkFilling();
+                if (currentFigure.isTouchGround()) {
+                    currentFigure.leaveOnTheGround();
+                    try {
+                        createNewFigure();
+                    } catch (FactoryException e) {
+                        System.out.println(e.getMessage());
+                        System.exit(-1);
+                    }
+                    gameOver = currentFigure.isCrossGround();
+                    if (gameOver) {
+                        view.update(field, gameOver, currentFigure, gameScore, gameState);
+                        addScoresToLeaderBoard();
+                    }
+                } else {
+                    currentFigure.stepDown();
+                }
+            }
+        };
+        timer.schedule(timerTask, 0L, SHOW_DELAY);
     }
     public boolean isGameOver() {
         return gameOver;
@@ -42,33 +81,33 @@ public class Model {
     public void createNewFigure() throws FactoryException {
         currentFigure = new Figure(field);
     }
-    public void go() throws FactoryException {
-        gameState = true;
-        gameOver = false;
-        while (!exit) {
-            try {
-                Thread.sleep(SHOW_DELAY);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (!gameState) continue;
-            view.update(field, gameOver, currentFigure, gameScore, gameState);
-            if (gameOver) continue;
-            checkFilling();
-            if (currentFigure.isTouchGround()) {
-                currentFigure.leaveOnTheGround();
-                createNewFigure();
-                gameOver = currentFigure.isCrossGround();
-                if (gameOver) {
-                    view.update(field, gameOver, currentFigure, gameScore, gameState);
-                    addScoresToLeaderBoard();
-                }
-            } else {
-                currentFigure.stepDown();
-            }
-        }
-        System.exit(0);
-    }
+//    public void go() throws FactoryException {
+//        gameState = true;
+//        gameOver = false;
+//        while (!exit) {
+//            try {
+//                Thread.sleep(SHOW_DELAY);
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//            if (!gameState) continue;
+//            view.update(field, gameOver, currentFigure, gameScore, gameState);
+//            if (gameOver) continue;
+//            checkFilling();
+//            if (currentFigure.isTouchGround()) {
+//                currentFigure.leaveOnTheGround();
+//                createNewFigure();
+//                gameOver = currentFigure.isCrossGround();
+//                if (gameOver) {
+//                    view.update(field, gameOver, currentFigure, gameScore, gameState);
+//                    addScoresToLeaderBoard();
+//                }
+//            } else {
+//                currentFigure.stepDown();
+//            }
+//        }
+//        System.exit(0);
+//    }
 
     void checkFilling() {
         int currentRow = FIELD_HEIGHT - 1; //bottom line

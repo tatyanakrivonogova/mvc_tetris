@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class LeaderBoardAdder {
     public void addToLeaderBoard(LeaderBoard leaderBoard, int score, String name) {
-        if (leaderBoard.checkRecord(name, score)) return;
+        if (leaderBoard.badRecord(name, score)) return;
         String newRecord = name + "=" + score + "\n";
         writeFile(newRecord);
         leaderBoard.getProperties().setProperty(name, String.valueOf(score));
