@@ -5,7 +5,6 @@ import model.Block;
 import model.Figure;
 
 import java.io.IOException;
-import java.util.Objects;
 import java.util.Properties;
 import java.util.Scanner;
 
@@ -15,6 +14,7 @@ public class TUI implements View {
     final int FIELD_HEIGHT = 18;
     Controller controller;
     Scanner scan;
+    KeyListenerTUI keyListenerTUI;
     int scores;
     boolean state;
     String title;
@@ -22,6 +22,7 @@ public class TUI implements View {
     public TUI(Controller _controller) {
         controller = _controller;
         scan = new Scanner(System.in);
+        keyListenerTUI = new KeyListenerTUI(controller);
     }
     @Override
     public void update(int[][] field, boolean gameOver, Figure figure, int scores, boolean state) {
@@ -61,16 +62,6 @@ public class TUI implements View {
         System.out.print('|');
         for (int i = 0; i < FIELD_WIDTH*2; ++i) System.out.print('_');
         System.out.print('|');
-//        if (scan.hasNext()) {
-        if (!scan.hasNext()) return;
-        String input = scan.nextLine();
-        //if (Objects.equals(input, null)) return;
-        if (Objects.equals(input, "x")) controller.down();
-        if (Objects.equals(input, "w")) controller.up();
-        if (Objects.equals(input, "a")) controller.left();
-        if (Objects.equals(input, "d")) controller.right();
-        if (Objects.equals(input, "q")) controller.clickExit();
-        //}
     }
     public void changeScores(int _scores) {
         scores = _scores;
@@ -79,6 +70,7 @@ public class TUI implements View {
     @Override
     public void changeState(boolean _state) {
         state = _state;
+        keyListenerTUI.setRunning(_state);
     }
 
     public void closeGame() {
@@ -101,11 +93,15 @@ public class TUI implements View {
                 drop figure
         """;
         System.out.println(message);
+        System.out.println("Enter any key to continue");
+        scan.nextLine();
     }
     public void showHighScores(Properties properties) {
         clear();
         LeaderBoardCreator creator = new LeaderBoardCreator();
         System.out.println(creator.createLeaderBoard(properties));
+        System.out.println("Enter any key to continue");
+        scan.nextLine();
     }
     public boolean showNewGame() {
         clear();
