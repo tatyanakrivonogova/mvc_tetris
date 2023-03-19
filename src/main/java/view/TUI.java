@@ -83,14 +83,14 @@ public class TUI implements View {
     public void showAbout() {
         clear();
         String message = """
-            UP
-                rotate figure
-            RIGHT
-                move figure to right side
-            LEFT
-                move figure to left side
-            DOWN
-                drop figure
+            W       rotate figure
+            D       move figure to right side
+            A       move figure to left side
+            X       drop figure
+            E       about
+            R       high records
+            SPACE   new game
+            Q       exit
         """;
         System.out.println(message);
         System.out.println("Enter any key to continue");
@@ -134,6 +134,8 @@ public class TUI implements View {
             else {
                 System.out.print("\033\143");
             }
-        } catch (IOException | InterruptedException ex) {}
+        } catch (IOException | InterruptedException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 }

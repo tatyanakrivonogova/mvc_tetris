@@ -139,14 +139,10 @@ public class GUI extends JFrame implements View {
     }
     public void showAbout() {
         String message = """
-            UP
-                rotate figure
-            RIGHT
-                move figure to right side
-            LEFT
-                move figure to left side
-            DOWN
-                drop figure
+            UP      rotate figure
+            RIGHT   move figure to right side
+            LEFT    move figure to left side
+            DOWN    drop figure
         """;
         JOptionPane.showMessageDialog(new JFrame(), message, "About",
                 JOptionPane.INFORMATION_MESSAGE);

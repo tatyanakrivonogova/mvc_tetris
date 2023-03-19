@@ -27,14 +27,14 @@ public class KeyListenerTUI {
             public void run() {
                 if (running) {
                     String input = scan.nextLine();
-                    if (Objects.equals(input, "x")) controller.down();
-                    if (Objects.equals(input, "w")) controller.up();
-                    if (Objects.equals(input, "a")) controller.left();
-                    if (Objects.equals(input, "d")) controller.right();
-                    if (Objects.equals(input, "q")) controller.clickExit();
+                    if (Objects.equals(input, "x") || Objects.equals(input, "X")) controller.down();
+                    if (Objects.equals(input, "w") || Objects.equals(input, "W")) controller.up();
+                    if (Objects.equals(input, "a") || Objects.equals(input, "A")) controller.left();
+                    if (Objects.equals(input, "d") || Objects.equals(input, "D")) controller.right();
+                    if (Objects.equals(input, "q") || Objects.equals(input, "Q")) controller.clickExit();
                     if (Objects.equals(input, " ")) controller.clickNewGame();
-                    if (Objects.equals(input, "e")) controller.clickAbout();
-                    if (Objects.equals(input, "r")) controller.clickHighScores();
+                    if (Objects.equals(input, "e") || Objects.equals(input, "E")) controller.clickAbout();
+                    if (Objects.equals(input, "r") || Objects.equals(input, "R")) controller.clickHighScores();
                 }
             }
         };

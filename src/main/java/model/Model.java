@@ -81,33 +81,6 @@ public class Model {
     public void createNewFigure() throws FactoryException {
         currentFigure = new Figure(field);
     }
-//    public void go() throws FactoryException {
-//        gameState = true;
-//        gameOver = false;
-//        while (!exit) {
-//            try {
-//                Thread.sleep(SHOW_DELAY);
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//            if (!gameState) continue;
-//            view.update(field, gameOver, currentFigure, gameScore, gameState);
-//            if (gameOver) continue;
-//            checkFilling();
-//            if (currentFigure.isTouchGround()) {
-//                currentFigure.leaveOnTheGround();
-//                createNewFigure();
-//                gameOver = currentFigure.isCrossGround();
-//                if (gameOver) {
-//                    view.update(field, gameOver, currentFigure, gameScore, gameState);
-//                    addScoresToLeaderBoard();
-//                }
-//            } else {
-//                currentFigure.stepDown();
-//            }
-//        }
-//        System.exit(0);
-//    }
 
     void checkFilling() {
         int currentRow = FIELD_HEIGHT - 1; //bottom line
