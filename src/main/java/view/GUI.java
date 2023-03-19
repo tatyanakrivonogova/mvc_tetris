@@ -24,14 +24,12 @@ public class GUI extends JFrame implements View {
     private final Canvas canvas;
     JPanel panel = new JPanel();
     JLabel scoreLabel;
-    Model game;
     Controller controller;
 
-    public GUI(Model _game, Controller _controller) {
+    public GUI(Controller _controller) {
         super();
-        game = _game;
         controller = _controller;
-        canvas = new Canvas(game);
+        canvas = new Canvas();
 
         setTitle("TETRIS 0");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -51,7 +49,7 @@ public class GUI extends JFrame implements View {
             }
         });
 
-        scoreLabel = new JLabel("SCORE: " + game.getGameScore());
+        scoreLabel = new JLabel("SCORE: 0"/* + game.getGameScore()*/);
         scoreLabel.setForeground(Color.PINK);
 
         setLayout( new FlowLayout(FlowLayout.LEFT) );
@@ -101,16 +99,10 @@ public class GUI extends JFrame implements View {
         pack();
         setVisible(true);
     }
-//    @Override
-//    public void setController(Controller _controller) {
-//        controller = _controller;
-//    }
-//    public void addListener(KeyListener _l) {
-//        panel.addKeyListener(_l);
-//    }
     @Override
-    public void update(int[][] field, boolean gameOver, Figure figure) {
-        canvas.repaint();
+    public void update(int[][] field, boolean gameOver, Figure figure, int scores) {
+        changeScores(scores);
+        canvas.update(field, figure, gameOver);
     }
     public void changeScores(int scores) {
         scoreLabel.setText("SCORES: " + scores);

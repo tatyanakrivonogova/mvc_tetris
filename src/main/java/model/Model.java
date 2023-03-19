@@ -15,30 +15,30 @@ public class Model {
     final int SHOW_DELAY = 400;
     private final int[][] field = new int[FIELD_HEIGHT + 1][FIELD_WIDTH];
     private Figure currentFigure;
-    private boolean gameOver = false;
+    private boolean gameOver;
     private boolean gameState;
     private boolean exit = false;
     final int[] SCORES = {100, 300, 700, 1500};
     View view;
-    public Model() {
+    public Model(View _view) {
+        view = _view;
         try {
             Factory.getInstance();
             Arrays.fill(field[FIELD_HEIGHT], 1); //the invisible floor is full
             createNewFigure();
+            gameOver = false;
+            view.update(field, gameOver, currentFigure, gameScore);
         } catch (FactoryException e) {
             System.out.println(e.getMessage());
         }
     }
-    public void setView(View _view) {
-        view = _view;
-    }
-    public int[][] getField() {
-        return field;
-    }
-    public Figure getCurrentFigure() {
-        return currentFigure;
-    }
-    public int getGameScore() { return gameScore; }
+//    public int[][] getField() {
+//        return field;
+//    }
+//    public Figure getCurrentFigure() {
+//        return currentFigure;
+//    }
+//    public int getGameScore() { return gameScore; }
 //    public void setGameScore(int score) {
 //        gameScore = score;
 //    }
@@ -61,8 +61,8 @@ public class Model {
                 e.printStackTrace();
             }
             if (!gameState) continue;
+            view.update(field, gameOver, currentFigure, gameScore);
             if (gameOver) continue;
-            view.update(field, gameOver, currentFigure);
             checkFilling();
             if (currentFigure.isTouchGround()) {
                 currentFigure.leaveOnTheGround();
@@ -72,6 +72,7 @@ public class Model {
                 currentFigure.stepDown();
             }
         }
+        System.exit(0);
     }
 
     void checkFilling() {
@@ -102,22 +103,22 @@ public class Model {
     public void down() {
         if (isGameOver()) return;
         currentFigure.drop();
-        view.update(field, gameOver, currentFigure);
+        view.update(field, gameOver, currentFigure, gameScore);
     }
     public void up() {
         if (isGameOver()) return;
         currentFigure.rotate();
-        view.update(field, gameOver, currentFigure);
+        view.update(field, gameOver, currentFigure, gameScore);
     }
     public void left() {
         if (isGameOver()) return;
         currentFigure.move(LEFT);
-        view.update(field, gameOver, currentFigure);
+        view.update(field, gameOver, currentFigure, gameScore);
     }
     public void right() {
         if (isGameOver()) return;
         currentFigure.move(RIGHT);
-        view.update(field, gameOver, currentFigure);
+        view.update(field, gameOver, currentFigure, gameScore);
     }
     public void pause() {
         gameState = false;

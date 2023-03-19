@@ -54,7 +54,9 @@ public class Figure {
 
     public boolean isCrossGround() {
         for (Block block : figure) {
-            if (field[block.getY()][block.getX()] > 0) return true;
+            if (field[block.getY()][block.getX()] > 0) {
+                return true;
+            }
         }
         return false;
     }

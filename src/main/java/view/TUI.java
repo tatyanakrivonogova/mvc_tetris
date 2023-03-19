@@ -40,7 +40,7 @@ public class TUI extends JTextField implements View {
 //        setVisible(true);
     }
     @Override
-    public void update(int[][] field, boolean gameOver, Figure figure) {
+    public void update(int[][] field, boolean gameOver, Figure figure, int scores) {
 
     }
 
