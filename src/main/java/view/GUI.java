@@ -6,9 +6,7 @@ import model.Model;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
 
 public class GUI extends JFrame implements View {
     final int BLOCK_SIZE = 25;
@@ -19,14 +17,20 @@ public class GUI extends JFrame implements View {
     final int START_LOCATION = 180;
     final int FIELD_DX = 15;
     final int FIELD_DY = 15;
-    private Canvas canvas;
+    final int LEFT = 37;
+    final int UP = 38;
+    final int RIGHT = 39;
+    final int DOWN = 40;
+    private final Canvas canvas;
     JPanel panel = new JPanel();
+    JLabel scoreLabel;
     Model game;
     Controller controller;
 
-    public GUI(Model _game) {
+    public GUI(Model _game, Controller _controller) {
         super();
         game = _game;
+        controller = _controller;
         canvas = new Canvas(game);
 
         setTitle("TETRIS 0");
@@ -38,7 +42,16 @@ public class GUI extends JFrame implements View {
         canvas.setBackground(Color.black);
         add(BorderLayout.CENTER, canvas);
 
-        JLabel scoreLabel = new JLabel("SCORE: " + game.getGameScore());
+        panel.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == DOWN) controller.down();
+                if (e.getKeyCode() == UP) controller.up();
+                if (e.getKeyCode() == LEFT) controller.left();
+                if (e.getKeyCode() == RIGHT) controller.right();
+            }
+        });
+
+        scoreLabel = new JLabel("SCORE: " + game.getGameScore());
         scoreLabel.setForeground(Color.PINK);
 
         setLayout( new FlowLayout(FlowLayout.LEFT) );
@@ -88,26 +101,27 @@ public class GUI extends JFrame implements View {
         pack();
         setVisible(true);
     }
-    @Override
-    public void setController(Controller _controller) {
-        controller = _controller;
-    }
-    public void addListener(KeyListener _l) {
-        panel.addKeyListener(_l);
-    }
+//    @Override
+//    public void setController(Controller _controller) {
+//        controller = _controller;
+//    }
+//    public void addListener(KeyListener _l) {
+//        panel.addKeyListener(_l);
+//    }
     @Override
     public void update(int[][] field, boolean gameOver, Figure figure) {
         canvas.repaint();
     }
+    public void changeScores(int scores) {
+        scoreLabel.setText("SCORES: " + scores);
+    }
+
+    public void closeGame() {
+        dispose();
+    }
     @Override
     public void changeTitle(String title) {
         setTitle(title);
-    }
-    @Override
-    public void clear() {
-        canvas = new Canvas(game);
-        add(canvas);
-        //canvas.repaint();
     }
     public void showAbout() {
         String message = """

@@ -13,18 +13,21 @@ public class Model {
     final int RIGHT = 39;
     private int gameScore = 0;
     final int SHOW_DELAY = 400;
-    private int[][] field = new int[FIELD_HEIGHT + 1][FIELD_WIDTH];
+    private final int[][] field = new int[FIELD_HEIGHT + 1][FIELD_WIDTH];
     private Figure currentFigure;
     private boolean gameOver = false;
     private boolean gameState;
-    private boolean loopOver = false;
+    private boolean exit = false;
     final int[] SCORES = {100, 300, 700, 1500};
     View view;
-    public Model() throws FactoryException {
-        //view = _view;
-        Factory.getInstance();
-        Arrays.fill(field[FIELD_HEIGHT], 1); //the invisible floor is full
-        createNewFigure();
+    public Model() {
+        try {
+            Factory.getInstance();
+            Arrays.fill(field[FIELD_HEIGHT], 1); //the invisible floor is full
+            createNewFigure();
+        } catch (FactoryException e) {
+            System.out.println(e.getMessage());
+        }
     }
     public void setView(View _view) {
         view = _view;
@@ -36,12 +39,12 @@ public class Model {
         return currentFigure;
     }
     public int getGameScore() { return gameScore; }
-    public void setGameScore(int score) {
-        gameScore = score;
-    }
-    public void setGameOver(boolean value) {
-        gameOver = value;
-    }
+//    public void setGameScore(int score) {
+//        gameScore = score;
+//    }
+//    public void setGameOver(boolean value) {
+//        gameOver = value;
+//    }
     public boolean isGameOver() {
         return gameOver;
     }
@@ -50,13 +53,15 @@ public class Model {
     }
     public void go() throws FactoryException {
         gameState = true;
-        while (!gameOver) {
+        gameOver = false;
+        while (!exit) {
             try {
                 Thread.sleep(SHOW_DELAY);
             } catch (Exception e) {
                 e.printStackTrace();
             }
             if (!gameState) continue;
+            if (gameOver) continue;
             view.update(field, gameOver, currentFigure);
             checkFilling();
             if (currentFigure.isTouchGround()) {
@@ -67,7 +72,6 @@ public class Model {
                 currentFigure.stepDown();
             }
         }
-        loopOver = true;
     }
 
     void checkFilling() {
@@ -92,21 +96,26 @@ public class Model {
         if (countFillRows > 0) {
             gameScore += SCORES[countFillRows - 1];
             view.changeTitle("TETRIS" + " : " + gameScore);
+            view.changeScores(gameScore);
         }
     }
     public void down() {
+        if (isGameOver()) return;
         currentFigure.drop();
         view.update(field, gameOver, currentFigure);
     }
     public void up() {
+        if (isGameOver()) return;
         currentFigure.rotate();
         view.update(field, gameOver, currentFigure);
     }
     public void left() {
+        if (isGameOver()) return;
         currentFigure.move(LEFT);
         view.update(field, gameOver, currentFigure);
     }
     public void right() {
+        if (isGameOver()) return;
         currentFigure.move(RIGHT);
         view.update(field, gameOver, currentFigure);
     }
@@ -118,17 +127,46 @@ public class Model {
     }
     public void restart() throws FactoryException {
         //gameOver = true;
+        view.changeScores(0);
         Arrays.fill(field[FIELD_HEIGHT], 1); //the invisible floor is full
         for (int i = 0; i < FIELD_HEIGHT; ++i) {
             Arrays.fill(field[i], 0);
         }
         createNewFigure();
-        if (loopOver) {
-            loopOver = false;
-            go();
-        }
+        gameOver = false;
+//        if (loopOver) {
+//            loopOver = false;
+//            go();
+//        }
     }
     public void finish() {
-        gameOver = true;
+        exit = true;
     }
+    public void about() {
+        pause();
+        view.showAbout();
+        resume();
+    }
+    public void highScores() {
+        pause();
+        view.showHighRecords();
+        resume();
+    }
+    public void newGame() {
+        pause();
+        try {
+            restart();
+        } catch (FactoryException ex) {
+            System.out.println(ex.getMessage());
+            System.exit(0);
+        }
+        view.showNewGame();
+        resume();
+    }
+    public void exitGame() {
+        finish();
+        view.closeGame();
+        System.exit(0);
+    }
+
 }

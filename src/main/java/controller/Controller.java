@@ -2,25 +2,14 @@ package controller;
 
 import exceptions.factoryexceptions.FactoryException;
 import model.Model;
-import view.View;
 
 import javax.swing.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
-import static java.lang.System.exit;
-
-public class Controller extends JFrame implements KeyListener {
+public class Controller extends JFrame {
     private final Model game;
-    private final View view;
-    final int LEFT = 37;
-    final int UP = 38;
-    final int RIGHT = 39;
-    final int DOWN = 40;
-    public Controller(Model _game, View _view) {
+
+    public Controller(Model _game) {
         game = _game;
-        view = _view;
-        view.addListener(this);
     }
     public void go() {
         try {
@@ -30,46 +19,31 @@ public class Controller extends JFrame implements KeyListener {
         }
     }
 
-    @Override
-    public void keyTyped(KeyEvent e) {}
-
-    public void keyPressed(KeyEvent e) {
-        if (!game.isGameOver()) {
-            if (e.getKeyCode() == DOWN) game.down();
-            if (e.getKeyCode() == UP) game.up();
-            if (e.getKeyCode() == LEFT) game.left();
-            if (e.getKeyCode() == RIGHT) game.right();
-        }
+    public void up() {
+        game.up();
     }
-
-    @Override
-    public void keyReleased(KeyEvent e) {}
-
+    public void down() {
+        game.down();
+    }
+    public void left() {
+        game.left();
+    }
+    public void right() {
+        game.right();
+    }
     public void clickButtonAbout() {
-        game.pause();
-        view.showAbout();
-        game.resume();
+        game.about();
     }
 
     public void clickButtonHighScores() {
-        game.pause();
-        view.showHighRecords();
-        game.resume();
+        game.highScores();
     }
 
     public void clickButtonNewGame() {
-        game.pause();
-        try {
-            game.restart();
-        } catch (FactoryException ex) {
-            System.out.println(ex.getMessage());
-            exit(0);
-        }
-        view.showNewGame();
-        game.resume();
+        game.newGame();
     }
 
     public void clickButtonExit() {
-        game.finish();
+        game.exitGame();
     }
 }

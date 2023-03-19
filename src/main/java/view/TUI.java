@@ -1,12 +1,9 @@
 package view;
 
-import controller.Controller;
 import model.Figure;
 import model.Model;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.KeyListener;
 
 public class TUI extends JTextField implements View {
     final int BLOCK_SIZE = 25;
@@ -68,13 +65,23 @@ public class TUI extends JTextField implements View {
     }
 
     @Override
-    public void addListener(KeyListener l) {
-        addKeyListener(l);
+    public void changeScores(int scores) {
+
     }
+
+//    @Override
+//    public void addListener(KeyListener l) {
+//        addKeyListener(l);
+//    }
+
+//    @Override
+//    public void setController(Controller c) {
+//
+//    }
+    public void clear() {}
 
     @Override
-    public void setController(Controller c) {
+    public void closeGame() {
 
     }
-    public void clear() {}
 }

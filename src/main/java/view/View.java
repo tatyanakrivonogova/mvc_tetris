@@ -1,9 +1,6 @@
 package view;
 
-import controller.Controller;
 import model.Figure;
-
-import java.awt.event.KeyListener;
 
 public interface View {
     void update(int[][] field, boolean gameOver, Figure figure);
@@ -11,7 +8,6 @@ public interface View {
     void showHighRecords();
     void showNewGame();
     void changeTitle(String title);
-    void addListener(KeyListener l);
-    void setController(Controller c);
-    void clear();
+    void changeScores(int scores);
+    void closeGame();
 }

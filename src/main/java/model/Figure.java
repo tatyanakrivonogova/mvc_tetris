@@ -98,9 +98,9 @@ public class Figure {
         for (int dx = 0; dx < size; ++dx) {
             for (int dy = 0; dy < size; ++dy) {
                 if (shape[dy][dx] == 1) {
-                    if (field[dy + y][dx + x] > 0) return true;
                     if (dy + y < 0) return true;
                     if (dx + x < 0 || dx + x > FIELD_WIDTH - 1) return true;
+                    if (field[dy + y][dx + x] > 0) return true;
                 }
             }
         }
