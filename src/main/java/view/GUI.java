@@ -6,10 +6,7 @@ import model.Figure;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Comparator;
-import java.util.Map;
 import java.util.Properties;
-import java.util.TreeMap;
 
 public class GUI extends JFrame implements View {
     final int BLOCK_SIZE = 25;
@@ -143,18 +140,9 @@ public class GUI extends JFrame implements View {
                 JOptionPane.INFORMATION_MESSAGE);
     }
     public void showHighScores(Properties properties) {
-        Map<String, String> sortedMap = new TreeMap<>(Comparator.comparing(o -> (Integer.parseInt((properties.get(o)).toString()))).reversed());
-        for (String name : properties.stringPropertyNames()) {
-            sortedMap.put(name, String.valueOf(properties.get(name)));
-        }
-        StringBuilder message = new StringBuilder();
-        int counter = 0;
-        for (String key : sortedMap.keySet()) {
-            message.append(key).append(" : ").append(sortedMap.get(key)).append('\n');
-            ++counter;
-            if (counter == 5) break;
-        }
-        JOptionPane.showMessageDialog(new JFrame(), message, "High records",
+
+        LeaderBoardCreator creator = new LeaderBoardCreator();
+        JOptionPane.showMessageDialog(new JFrame(), creator.createLeaderBoard(properties), "High records",
                 JOptionPane.INFORMATION_MESSAGE);
     }
     public void showNewGame() {

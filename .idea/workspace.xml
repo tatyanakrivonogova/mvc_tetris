@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5500570f-2fc7-4b20-9a65-3f3fed385f1d" name="Changes" comment="added sorting of leader board">
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/LeaderBoardAdder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/LeaderBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/LeaderBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/leaderboard.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/leaderboard.properties" afterDir="false" />
+    <list default="true" id="5500570f-2fc7-4b20-9a65-3f3fed385f1d" name="Changes" comment="added changing of leader board and deleting repeats">
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/LeaderBoardCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/TUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/TUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679209074399</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added changing of leader board and deleting repeats">
+      <created>1679210854170</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1679210854170</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -240,7 +245,8 @@
     <MESSAGE value="good, try to avoid dependency view on game" />
     <MESSAGE value="success, fixed game over" />
     <MESSAGE value="added sorting of leader board" />
-    <option name="LAST_COMMIT_MESSAGE" value="added sorting of leader board" />
+    <MESSAGE value="added changing of leader board and deleting repeats" />
+    <option name="LAST_COMMIT_MESSAGE" value="added changing of leader board and deleting repeats" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
