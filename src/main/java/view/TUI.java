@@ -4,24 +4,24 @@ import controller.Controller;
 import model.Block;
 import model.Figure;
 
-
 import java.io.IOException;
+import java.util.Objects;
 import java.util.Properties;
+import java.util.Scanner;
 
 public class TUI implements View {
+    final int NAME_LIMIT = 30;
     final int FIELD_WIDTH = 10;
     final int FIELD_HEIGHT = 18;
-    final int LEFT = 37;
-    final int UP = 38;
-    final int RIGHT = 39;
-    final int DOWN = 40;
     Controller controller;
+    Scanner scan;
     int scores;
     boolean state;
     String title;
 
     public TUI(Controller _controller) {
         controller = _controller;
+        scan = new Scanner(System.in);
     }
     @Override
     public void update(int[][] field, boolean gameOver, Figure figure, int scores, boolean state) {
@@ -34,6 +34,11 @@ public class TUI implements View {
             System.out.println("STATE: PAUSE");
         }
         System.out.println("SCORES: " + scores);
+
+        if (gameOver) {
+            System.out.println("Game over!");
+            return;
+        }
 
         System.out.print(' ');
         for (int i = 0; i < FIELD_WIDTH*2; ++i) System.out.print('_');
@@ -56,6 +61,15 @@ public class TUI implements View {
         System.out.print('|');
         for (int i = 0; i < FIELD_WIDTH*2; ++i) System.out.print('_');
         System.out.print('|');
+//        if (scan.hasNext()) {
+        String input = scan.nextLine();
+        if (Objects.equals(input, "")) return;
+        if (Objects.equals(input, "x")) controller.down();
+        if (Objects.equals(input, "w")) controller.up();
+        if (Objects.equals(input, "a")) controller.left();
+        if (Objects.equals(input, "d")) controller.right();
+        if (Objects.equals(input, "q")) controller.clickExit();
+        //}
     }
     public void changeScores(int _scores) {
         scores = _scores;
@@ -92,11 +106,29 @@ public class TUI implements View {
         LeaderBoardCreator creator = new LeaderBoardCreator();
         System.out.println(creator.createLeaderBoard(properties));
     }
-    public void showNewGame() {
+    public boolean showNewGame() {
         clear();
-        String message = "Let's start new game!";
+        String message = "Do you want to start new game? Enter Y or N";
         System.out.println(message);
+        String result = scan.nextLine();
+        return result.equals("Y") || result.equals("y");
     }
+    public boolean showExit() {
+        clear();
+        String message = "Do you want to exit? Enter Y or N";
+        System.out.println(message);
+        String result = scan.nextLine();
+        return result.equals("Y") || result.equals("y");
+    }
+
+    @Override
+    public String getName() {
+        System.out.println("Enter your name:");
+        String name = scan.nextLine();
+        name = (name.length() > NAME_LIMIT) ? name.substring(0, NAME_LIMIT) : name;
+        return name;
+    }
+
     private void clear() {
         try {
             if (System.getProperty("os.name").contains("Windows")) {

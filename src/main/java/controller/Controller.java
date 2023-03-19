@@ -30,19 +30,19 @@ public class Controller extends JFrame {
     public void right() {
         game.right();
     }
-    public void clickButtonAbout() {
+    public void clickAbout() {
         game.about();
     }
 
-    public void clickButtonHighScores() {
+    public void clickHighScores() {
         game.highScores();
     }
 
-    public void clickButtonNewGame() {
+    public void clickNewGame() {
         game.newGame();
     }
 
-    public void clickButtonExit() {
+    public void clickExit() {
         game.exitGame();
     }
 }

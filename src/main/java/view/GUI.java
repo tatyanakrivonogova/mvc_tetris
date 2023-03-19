@@ -8,7 +8,10 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.Properties;
 
+import static javax.swing.JOptionPane.*;
+
 public class GUI extends JFrame implements View {
+    final int NAME_LIMIT = 30;
     final int BLOCK_SIZE = 25;
     final int WINDOW_WIDTH = 15;
     final int WINDOW_HEIGHT = 18;
@@ -68,19 +71,19 @@ public class GUI extends JFrame implements View {
         buttonExit.setBackground(Color.ORANGE);
 
         buttonAbout.addActionListener(e -> {
-            controller.clickButtonAbout();
+            controller.clickAbout();
             buttonAbout.setFocusable(false);
         });
         buttonHighScores.addActionListener(e -> {
-            controller.clickButtonHighScores();
+            controller.clickHighScores();
             buttonHighScores.setFocusable(false);
         });
         buttonNewGame.addActionListener(e -> {
-            controller.clickButtonNewGame();
+            controller.clickNewGame();
             buttonNewGame.setFocusable(false);
         });
         buttonExit.addActionListener(e -> {
-            controller.clickButtonExit();
+            controller.clickExit();
             buttonExit.setFocusable(false);
         });
 
@@ -121,7 +124,11 @@ public class GUI extends JFrame implements View {
             stateLabel.setText("STATE: PAUSE");
         }
     }
-
+    public String getName() {
+        String name = JOptionPane.showInputDialog("Enter your name");
+        name = (name.length() > NAME_LIMIT) ? name.substring(0, NAME_LIMIT) : name;
+        return name;
+    }
     public void closeGame() {
         dispose();
     }
@@ -149,9 +156,16 @@ public class GUI extends JFrame implements View {
         JOptionPane.showMessageDialog(new JFrame(), creator.createLeaderBoard(properties), "High records",
                 JOptionPane.INFORMATION_MESSAGE);
     }
-    public void showNewGame() {
-        String message = "Let's start new game!";
-        JOptionPane.showMessageDialog(new JFrame(), message, "New game",
-                JOptionPane.INFORMATION_MESSAGE);
+    public boolean showNewGame() {
+        String message = "Do you want to start new game?";
+        int result = JOptionPane.showConfirmDialog(new JFrame(), message, "New game",
+                JOptionPane.YES_NO_CANCEL_OPTION);
+        return result == YES_OPTION;
+    }
+    public boolean showExit() {
+        String message = "Do you want to exit?";
+        int result = JOptionPane.showConfirmDialog(new JFrame(), message, "Exit",
+                JOptionPane.YES_NO_CANCEL_OPTION);
+        return result == YES_OPTION;
     }
 }

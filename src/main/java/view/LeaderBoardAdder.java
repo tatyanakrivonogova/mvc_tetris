@@ -2,22 +2,20 @@ package view;
 
 import model.LeaderBoard;
 
-import javax.swing.*;
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class LeaderBoardAdder {
-    public void addToLeaderBoard(LeaderBoard leaderBoard, int score) {
-        String name = JOptionPane.showInputDialog("Enter your name");
+    public void addToLeaderBoard(LeaderBoard leaderBoard, int score, String name) {
         if (leaderBoard.checkRecord(name, score)) return;
         String newRecord = name + "=" + score + "\n";
-        writeFile("/D:/java/lab3/src/main/resources/leaderboard.properties", newRecord);
+        writeFile(newRecord);
         leaderBoard.getProperties().setProperty(name, String.valueOf(score));
     }
-    private void writeFile(String filename, String text) {
+    private void writeFile(String text) {
         FileWriter writer = null;
         try {
-            writer = new FileWriter(filename, true);
+            writer = new FileWriter("/D:/java/lab3/src/main/resources/leaderboard.properties", true);
             writer.write(text);
         }
         catch (IOException exception) {

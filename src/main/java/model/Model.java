@@ -136,7 +136,8 @@ public class Model {
         exit = true;
     }
     public void addScoresToLeaderBoard() {
-        leaderBoardAdder.addToLeaderBoard(leaderBoard, gameScore);
+        String name = view.getName();
+        leaderBoardAdder.addToLeaderBoard(leaderBoard, gameScore, name);
     }
     public void about() {
         pause();
@@ -150,17 +151,25 @@ public class Model {
     }
     public void newGame() {
         pause();
+        if (!view.showNewGame()) {
+            resume();
+            return;
+        }
         try {
             restart();
         } catch (FactoryException ex) {
             System.out.println(ex.getMessage());
             System.exit(0);
         }
-        view.showNewGame();
         view.changeScores(0);
         resume();
     }
     public void exitGame() {
+        pause();
+        if (!view.showExit()) {
+            resume();
+            return;
+        }
         finish();
         view.closeGame();
         System.exit(0);
