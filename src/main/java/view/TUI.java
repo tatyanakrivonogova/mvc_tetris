@@ -4,6 +4,7 @@ import model.Figure;
 import model.Model;
 
 import javax.swing.*;
+import java.util.Properties;
 
 public class TUI extends JTextField implements View {
     final int BLOCK_SIZE = 25;
@@ -40,7 +41,7 @@ public class TUI extends JTextField implements View {
 //        setVisible(true);
     }
     @Override
-    public void update(int[][] field, boolean gameOver, Figure figure, int scores) {
+    public void update(int[][] field, boolean gameOver, Figure figure, int scores, boolean state) {
 
     }
 
@@ -50,7 +51,7 @@ public class TUI extends JTextField implements View {
     }
 
     @Override
-    public void showHighRecords() {
+    public void showHighScores(Properties properties) {
 
     }
 
@@ -59,6 +60,7 @@ public class TUI extends JTextField implements View {
 
     }
 
+
     @Override
     public void changeTitle(String _title) {
         title = _title;
@@ -66,6 +68,11 @@ public class TUI extends JTextField implements View {
 
     @Override
     public void changeScores(int scores) {
+
+    }
+
+    @Override
+    public void changeState(boolean state) {
 
     }
 

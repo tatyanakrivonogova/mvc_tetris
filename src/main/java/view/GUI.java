@@ -2,11 +2,14 @@ package view;
 
 import controller.Controller;
 import model.Figure;
-import model.Model;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Comparator;
+import java.util.Map;
+import java.util.Properties;
+import java.util.TreeMap;
 
 public class GUI extends JFrame implements View {
     final int BLOCK_SIZE = 25;
@@ -23,6 +26,7 @@ public class GUI extends JFrame implements View {
     final int DOWN = 40;
     private final Canvas canvas;
     JPanel panel = new JPanel();
+    JLabel stateLabel;
     JLabel scoreLabel;
     Controller controller;
 
@@ -49,7 +53,10 @@ public class GUI extends JFrame implements View {
             }
         });
 
-        scoreLabel = new JLabel("SCORE: 0"/* + game.getGameScore()*/);
+        stateLabel = new JLabel("STATE: ");
+        stateLabel.setForeground(Color.pink);
+
+        scoreLabel = new JLabel("SCORE: ");
         scoreLabel.setForeground(Color.PINK);
 
         setLayout( new FlowLayout(FlowLayout.LEFT) );
@@ -84,6 +91,7 @@ public class GUI extends JFrame implements View {
                 WINDOW_WIDTH * BLOCK_SIZE + FIELD_DX, WINDOW_HEIGHT * BLOCK_SIZE + FIELD_DY);
         panel.setBackground(Color.BLACK);
         panel.setLayout(new GridLayout(0, 1, 0, 20));
+        panel.add(stateLabel);
         panel.add(scoreLabel);
         panel.add(buttonAbout);
         panel.add(buttonHighScores);
@@ -100,12 +108,17 @@ public class GUI extends JFrame implements View {
         setVisible(true);
     }
     @Override
-    public void update(int[][] field, boolean gameOver, Figure figure, int scores) {
+    public void update(int[][] field, boolean gameOver, Figure figure, int scores, boolean state) {
         changeScores(scores);
+        changeState(state);
         canvas.update(field, figure, gameOver);
     }
     public void changeScores(int scores) {
         scoreLabel.setText("SCORES: " + scores);
+    }
+    public void changeState(boolean state) {
+        if (state) stateLabel.setText("STATE: RUN");
+        if (!state) stateLabel.setText("STATE: PAUSE");
     }
 
     public void closeGame() {
@@ -129,12 +142,18 @@ public class GUI extends JFrame implements View {
         JOptionPane.showMessageDialog(new JFrame(), message, "About",
                 JOptionPane.INFORMATION_MESSAGE);
     }
-    public void showHighRecords() {
-        String message = """
-            John: 10000
-            Max: 100
-            Jacob: 3
-        """;
+    public void showHighScores(Properties properties) {
+        Map<String, String> sortedMap = new TreeMap<>(Comparator.comparing(o -> (Integer.parseInt((properties.get(o)).toString()))).reversed());
+        for (String name : properties.stringPropertyNames()) {
+            sortedMap.put(name, String.valueOf(properties.get(name)));
+        }
+        StringBuilder message = new StringBuilder();
+        int counter = 0;
+        for (String key : sortedMap.keySet()) {
+            message.append(key).append(" : ").append(sortedMap.get(key)).append('\n');
+            ++counter;
+            if (counter == 5) break;
+        }
         JOptionPane.showMessageDialog(new JFrame(), message, "High records",
                 JOptionPane.INFORMATION_MESSAGE);
     }

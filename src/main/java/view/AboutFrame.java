@@ -3,8 +3,8 @@ package view;
 import javax.swing.*;
 import java.awt.*;
 
-public class About extends JFrame {
-    public About() {
+public class AboutFrame extends JFrame {
+    public AboutFrame() {
         super("About");
 
         JPanel aboutPanel = new JPanel();

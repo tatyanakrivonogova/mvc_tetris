@@ -19,32 +19,21 @@ public class Model {
     private boolean gameState;
     private boolean exit = false;
     final int[] SCORES = {100, 300, 700, 1500};
+    LeaderBoard leaderBoard;
     View view;
     public Model(View _view) {
         view = _view;
+        leaderBoard = new LeaderBoard();
         try {
             Factory.getInstance();
             Arrays.fill(field[FIELD_HEIGHT], 1); //the invisible floor is full
             createNewFigure();
             gameOver = false;
-            view.update(field, gameOver, currentFigure, gameScore);
+            view.update(field, gameOver, currentFigure, gameScore, gameState);
         } catch (FactoryException e) {
             System.out.println(e.getMessage());
         }
     }
-//    public int[][] getField() {
-//        return field;
-//    }
-//    public Figure getCurrentFigure() {
-//        return currentFigure;
-//    }
-//    public int getGameScore() { return gameScore; }
-//    public void setGameScore(int score) {
-//        gameScore = score;
-//    }
-//    public void setGameOver(boolean value) {
-//        gameOver = value;
-//    }
     public boolean isGameOver() {
         return gameOver;
     }
@@ -61,7 +50,7 @@ public class Model {
                 e.printStackTrace();
             }
             if (!gameState) continue;
-            view.update(field, gameOver, currentFigure, gameScore);
+            view.update(field, gameOver, currentFigure, gameScore, gameState);
             if (gameOver) continue;
             checkFilling();
             if (currentFigure.isTouchGround()) {
@@ -103,28 +92,30 @@ public class Model {
     public void down() {
         if (isGameOver()) return;
         currentFigure.drop();
-        view.update(field, gameOver, currentFigure, gameScore);
+        view.update(field, gameOver, currentFigure, gameScore, gameState);
     }
     public void up() {
         if (isGameOver()) return;
         currentFigure.rotate();
-        view.update(field, gameOver, currentFigure, gameScore);
+        view.update(field, gameOver, currentFigure, gameScore, gameState);
     }
     public void left() {
         if (isGameOver()) return;
         currentFigure.move(LEFT);
-        view.update(field, gameOver, currentFigure, gameScore);
+        view.update(field, gameOver, currentFigure, gameScore, gameState);
     }
     public void right() {
         if (isGameOver()) return;
         currentFigure.move(RIGHT);
-        view.update(field, gameOver, currentFigure, gameScore);
+        view.update(field, gameOver, currentFigure, gameScore, gameState);
     }
     public void pause() {
         gameState = false;
+        view.changeState(gameState);
     }
     public void resume() {
         gameState = true;
+        view.changeState(gameState);
     }
     public void restart() throws FactoryException {
         //gameOver = true;
@@ -150,7 +141,7 @@ public class Model {
     }
     public void highScores() {
         pause();
-        view.showHighRecords();
+        view.showHighScores(leaderBoard.getProperties());
         resume();
     }
     public void newGame() {
@@ -169,5 +160,4 @@ public class Model {
         view.closeGame();
         System.exit(0);
     }
-
 }

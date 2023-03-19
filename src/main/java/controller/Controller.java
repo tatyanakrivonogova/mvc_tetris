@@ -7,10 +7,6 @@ import javax.swing.*;
 
 public class Controller extends JFrame {
     private Model game;
-
-    public Controller() {
-        //game = _game;
-    }
     public void setGame(Model _game) {
         game = _game;
     }
