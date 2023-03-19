@@ -114,8 +114,12 @@ public class GUI extends JFrame implements View {
         scoreLabel.setText("SCORES: " + scores);
     }
     public void changeState(boolean state) {
-        if (state) stateLabel.setText("STATE: RUN");
-        if (!state) stateLabel.setText("STATE: PAUSE");
+        if (state) {
+            stateLabel.setText("STATE: RUN");
+        }
+        else {
+            stateLabel.setText("STATE: PAUSE");
+        }
     }
 
     public void closeGame() {
