@@ -1,6 +1,7 @@
 package model;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Objects;
 import java.util.Properties;
 
 public class LeaderBoard {
@@ -18,5 +19,8 @@ public class LeaderBoard {
 
     public Properties getProperties() {
         return properties;
+    }
+    public boolean checkRecord(String name, int score) {
+        return Objects.equals(properties.getProperty(name), String.valueOf(score));
     }
 }

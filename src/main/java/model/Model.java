@@ -2,6 +2,7 @@ package model;
 
 import exceptions.factoryexceptions.FactoryException;
 import model.factory.Factory;
+import view.LeaderBoardAdder;
 import view.View;
 
 import java.util.Arrays;
@@ -20,6 +21,7 @@ public class Model {
     private boolean exit = false;
     final int[] SCORES = {100, 300, 700, 1500};
     LeaderBoard leaderBoard;
+    LeaderBoardAdder leaderBoardAdder = new LeaderBoardAdder();
     View view;
     public Model(View _view) {
         view = _view;
@@ -57,6 +59,10 @@ public class Model {
                 currentFigure.leaveOnTheGround();
                 createNewFigure();
                 gameOver = currentFigure.isCrossGround();
+                if (gameOver) {
+                    view.update(field, gameOver, currentFigure, gameScore, gameState);
+                    addScoresToLeaderBoard();
+                }
             } else {
                 currentFigure.stepDown();
             }
@@ -118,21 +124,19 @@ public class Model {
         view.changeState(gameState);
     }
     public void restart() throws FactoryException {
-        //gameOver = true;
-        view.changeScores(0);
+        gameScore = 0;
         Arrays.fill(field[FIELD_HEIGHT], 1); //the invisible floor is full
         for (int i = 0; i < FIELD_HEIGHT; ++i) {
             Arrays.fill(field[i], 0);
         }
         createNewFigure();
         gameOver = false;
-//        if (loopOver) {
-//            loopOver = false;
-//            go();
-//        }
     }
     public void finish() {
         exit = true;
+    }
+    public void addScoresToLeaderBoard() {
+        leaderBoardAdder.addToLeaderBoard(leaderBoard, gameScore);
     }
     public void about() {
         pause();
@@ -153,6 +157,7 @@ public class Model {
             System.exit(0);
         }
         view.showNewGame();
+        view.changeScores(0);
         resume();
     }
     public void exitGame() {
