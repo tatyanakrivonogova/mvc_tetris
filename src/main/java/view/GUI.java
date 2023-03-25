@@ -156,13 +156,13 @@ public class GUI extends JFrame implements View {
     public boolean showNewGame() {
         String message = "Do you want to start new game?";
         int result = JOptionPane.showConfirmDialog(new JFrame(), message, "New game",
-                JOptionPane.YES_NO_CANCEL_OPTION);
+                JOptionPane.YES_NO_OPTION);
         return result == YES_OPTION;
     }
     public boolean showExit() {
         String message = "Do you want to exit?";
         int result = JOptionPane.showConfirmDialog(new JFrame(), message, "Exit",
-                JOptionPane.YES_NO_CANCEL_OPTION);
+                JOptionPane.YES_NO_OPTION);
         return result == YES_OPTION;
     }
 }

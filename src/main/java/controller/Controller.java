@@ -2,20 +2,11 @@ package controller;
 
 import model.Model;
 
-import javax.swing.*;
-
-public class Controller extends JFrame {
+public class Controller {
     private Model game;
     public void setGame(Model _game) {
         game = _game;
     }
-//    public void go() {
-////        try {
-////            game.run();
-////        } catch (FactoryException e) {
-////            System.out.println(e.getMessage());
-////        }
-//    }
 
     public void up() {
         game.up();

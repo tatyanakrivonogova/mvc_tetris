@@ -15,7 +15,7 @@ public class LeaderBoardAdder {
     private void writeFile(String text) {
         FileWriter writer = null;
         try {
-            writer = new FileWriter("/D:/java/lab3/src/main/resources/leaderboard.properties", true);
+            writer = new FileWriter("src/main/resources/leaderboard.properties", true);
             writer.write(text);
         }
         catch (IOException exception) {

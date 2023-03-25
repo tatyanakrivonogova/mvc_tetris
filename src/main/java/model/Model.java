@@ -6,8 +6,8 @@ import view.LeaderBoardAdder;
 import view.View;
 
 import java.util.Arrays;
-import java.util.Timer;
-import java.util.TimerTask;
+
+import static java.lang.Thread.sleep;
 
 public class Model {
     final int FIELD_WIDTH = 10;
@@ -18,14 +18,13 @@ public class Model {
     final int SHOW_DELAY = 400;
     private final int[][] field = new int[FIELD_HEIGHT + 1][FIELD_WIDTH];
     private Figure currentFigure;
-    private boolean gameOver;
-    private boolean gameState;
-    private boolean exit = false;
+    volatile private boolean gameOver;
+    volatile private boolean gameState;
     final int[] SCORES = {100, 300, 700, 1500};
     LeaderBoard leaderBoard;
     LeaderBoardAdder leaderBoardAdder = new LeaderBoardAdder();
     View view;
-    Timer timer = new Timer();
+    private final Thread gameThread;
     public Model(View _view) {
         view = _view;
         leaderBoard = new LeaderBoard();
@@ -41,44 +40,51 @@ public class Model {
         gameState = true;
         gameOver = false;
 
-        TimerTask timerTask = new TimerTask() {
+        gameThread = new Thread(new Runnable() {
             @Override
             public void run() {
-                if (exit) System.exit(0);
-
-                try {
-                    Thread.sleep(SHOW_DELAY);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (!gameState) return;
-                view.update(field, gameOver, currentFigure, gameScore, gameState);
-                if (gameOver) return;
-                checkFilling();
-                if (currentFigure.isTouchGround()) {
-                    currentFigure.leaveOnTheGround();
+                while (!Thread.currentThread().isInterrupted()) {
                     try {
-                        createNewFigure();
-                    } catch (FactoryException e) {
-                        System.out.println(e.getMessage());
-                        System.exit(-1);
+                        sleep(SHOW_DELAY);
+                    } catch (InterruptedException e) {
+                        System.out.println("Game has been interrupted");
+                        //break;
+                        gameThread.interrupt();
                     }
-                    gameOver = currentFigure.isCrossGround();
-                    if (gameOver) {
-                        view.update(field, gameOver, currentFigure, gameScore, gameState);
-                        addScoresToLeaderBoard();
+                    if (!gameState) continue;
+                    view.update(field, gameOver, currentFigure, gameScore, gameState);
+                    if (gameOver) continue;
+                    checkFilling();
+                    if (currentFigure.isTouchGround()) {
+                        currentFigure.leaveOnTheGround();
+                        try {
+                            createNewFigure();
+                        } catch (FactoryException e) {
+                            System.out.println(e.getMessage());
+                            System.exit(-1);
+                        }
+                        gameOver = currentFigure.isCrossGround();
+                        if (gameOver) {
+                            view.update(field, gameOver, currentFigure, gameScore, gameState);
+                            addScoresToLeaderBoard();
+                        }
+                    } else {
+                        currentFigure.stepDown();
                     }
-                } else {
-                    currentFigure.stepDown();
                 }
+                System.out.println("END");
             }
-        };
-        timer.schedule(timerTask, 0L, SHOW_DELAY);
+        });
+
+        gameThread.start();
+        System.out.println("RUN");
     }
+
+
     public boolean isGameOver() {
         return gameOver;
     }
-    public void createNewFigure() throws FactoryException {
+    private void createNewFigure() throws FactoryException {
         currentFigure = new Figure(field);
     }
 
@@ -144,9 +150,6 @@ public class Model {
         createNewFigure();
         gameOver = false;
     }
-    public void finish() {
-        exit = true;
-    }
     public void addScoresToLeaderBoard() {
         String name = view.getName();
         leaderBoardAdder.addToLeaderBoard(leaderBoard, gameScore, name);
@@ -182,8 +185,12 @@ public class Model {
             resume();
             return;
         }
-        finish();
+
         view.closeGame();
-        System.exit(0);
+        gameThread.interrupt();
+        //Thread.currentThread().interrupt();
+    }
+    public Thread getGameThread() {
+        return gameThread;
     }
 }
