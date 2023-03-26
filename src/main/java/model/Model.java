@@ -2,14 +2,14 @@ package model;
 
 import exceptions.factoryexceptions.FactoryException;
 import model.factory.Factory;
-import view.LeaderBoardAdder;
+import model.leaderboard.LeaderBoard;
+import model.leaderboard.LeaderBoardAdder;
 import view.View;
 
+import java.io.InvalidObjectException;
 import java.util.Arrays;
 
-import static java.lang.Thread.sleep;
-
-public class Model {
+public class Model extends Thread {
     final int FIELD_WIDTH = 10;
     final int FIELD_HEIGHT = 18;
     final int LEFT = 37;
@@ -24,7 +24,7 @@ public class Model {
     LeaderBoard leaderBoard;
     LeaderBoardAdder leaderBoardAdder = new LeaderBoardAdder();
     View view;
-    private final Thread gameThread;
+    //private final Thread gameThread;
     public Model(View _view) {
         view = _view;
         leaderBoard = new LeaderBoard();
@@ -40,43 +40,7 @@ public class Model {
         gameState = true;
         gameOver = false;
 
-        gameThread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (!Thread.currentThread().isInterrupted()) {
-                    try {
-                        sleep(SHOW_DELAY);
-                    } catch (InterruptedException e) {
-                        System.out.println("Game has been interrupted");
-                        //break;
-                        gameThread.interrupt();
-                    }
-                    if (!gameState) continue;
-                    view.update(field, gameOver, currentFigure, gameScore, gameState);
-                    if (gameOver) continue;
-                    checkFilling();
-                    if (currentFigure.isTouchGround()) {
-                        currentFigure.leaveOnTheGround();
-                        try {
-                            createNewFigure();
-                        } catch (FactoryException e) {
-                            System.out.println(e.getMessage());
-                            System.exit(-1);
-                        }
-                        gameOver = currentFigure.isCrossGround();
-                        if (gameOver) {
-                            view.update(field, gameOver, currentFigure, gameScore, gameState);
-                            addScoresToLeaderBoard();
-                        }
-                    } else {
-                        currentFigure.stepDown();
-                    }
-                }
-                System.out.println("END");
-            }
-        });
-
-        gameThread.start();
+        this.start();
         System.out.println("RUN");
     }
 
@@ -137,7 +101,7 @@ public class Model {
         gameState = false;
         view.changeState(gameState);
     }
-    public void resume() {
+    public void pauseOff() {
         gameState = true;
         view.changeState(gameState);
     }
@@ -157,17 +121,21 @@ public class Model {
     public void about() {
         pause();
         view.showAbout();
-        resume();
+        pauseOff();
     }
     public void highScores() {
         pause();
-        view.showHighScores(leaderBoard.getProperties());
-        resume();
+        try {
+            view.showHighScores(leaderBoard.getProperties());
+        } catch (InvalidObjectException e) {
+            System.out.println("Impossible to load high scores");
+        }
+        pauseOff();
     }
     public void newGame() {
         pause();
         if (!view.showNewGame()) {
-            resume();
+            pauseOff();
             return;
         }
         try {
@@ -177,20 +145,50 @@ public class Model {
             System.exit(0);
         }
         view.changeScores(0);
-        resume();
+        pauseOff();
     }
     public void exitGame() {
         pause();
         if (!view.showExit()) {
-            resume();
+            pauseOff();
             return;
         }
 
         view.closeGame();
-        gameThread.interrupt();
+        this.interrupt();
         //Thread.currentThread().interrupt();
     }
-    public Thread getGameThread() {
-        return gameThread;
+    @Override
+    public void run() {
+        while (!Thread.currentThread().isInterrupted()) {
+            try {
+                sleep(SHOW_DELAY);
+            } catch (InterruptedException e) {
+                System.out.println("Game has been interrupted");
+                //break;
+                interrupt();
+            }
+            if (!gameState) continue;
+            view.update(field, gameOver, currentFigure, gameScore, gameState);
+            if (gameOver) continue;
+            checkFilling();
+            if (currentFigure.isTouchGround()) {
+                currentFigure.leaveOnTheGround();
+                try {
+                    createNewFigure();
+                } catch (FactoryException e) {
+                    System.out.println(e.getMessage());
+                    System.exit(-1);
+                }
+                gameOver = currentFigure.isCrossGround();
+                if (gameOver) {
+                    view.update(field, gameOver, currentFigure, gameScore, gameState);
+                    addScoresToLeaderBoard();
+                }
+            } else {
+                currentFigure.stepDown();
+            }
+        }
+        System.out.println("END");
     }
 }

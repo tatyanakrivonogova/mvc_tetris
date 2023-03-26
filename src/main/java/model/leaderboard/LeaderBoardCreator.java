@@ -1,4 +1,4 @@
-package view;
+package model.leaderboard;
 
 import java.util.Comparator;
 import java.util.Map;

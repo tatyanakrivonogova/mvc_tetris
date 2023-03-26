@@ -3,6 +3,7 @@ package view;
 import controller.Controller;
 import model.Block;
 import model.Figure;
+import model.leaderboard.LeaderBoardCreator;
 
 import java.io.IOException;
 import java.util.Properties;

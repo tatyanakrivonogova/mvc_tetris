@@ -2,6 +2,7 @@ package view;
 
 import controller.Controller;
 import model.Figure;
+import model.leaderboard.LeaderBoardCreator;
 
 import javax.swing.*;
 import java.awt.*;
