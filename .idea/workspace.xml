@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5500570f-2fc7-4b20-9a65-3f3fed385f1d" name="Changes" comment="added serialization">
+    <list default="true" id="5500570f-2fc7-4b20-9a65-3f3fed385f1d" name="Changes" comment="added system.exit(0) in main, tui reaction on keys doesn't work">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Figure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Figure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/HighScoresTable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardAdder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardAdder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/KeyListenerTUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/KeyListenerTUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679804183905</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="added system.exit(0) in main, tui reaction on keys doesn't work">
+      <created>1679920154902</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1679920154902</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -319,7 +320,8 @@
     <MESSAGE value="added upper register of keys in TUI and changed panel &quot;about&quot;" />
     <MESSAGE value="threads don't finish" />
     <MESSAGE value="added serialization" />
-    <option name="LAST_COMMIT_MESSAGE" value="added serialization" />
+    <MESSAGE value="added system.exit(0) in main, tui reaction on keys doesn't work" />
+    <option name="LAST_COMMIT_MESSAGE" value="added system.exit(0) in main, tui reaction on keys doesn't work" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
