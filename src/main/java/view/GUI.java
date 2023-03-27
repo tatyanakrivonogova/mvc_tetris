@@ -4,9 +4,12 @@ import controller.Controller;
 import model.Figure;
 import model.leaderboard.LeaderBoardCreator;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.Properties;
 
 import static javax.swing.JOptionPane.*;
@@ -19,6 +22,7 @@ public class GUI extends JFrame implements View {
     final int FIELD_WIDTH = 10;
     final int FIELD_HEIGHT = 18;
     final int START_LOCATION = 180;
+    final int IMAGE_SIZE = 50;
     final int FIELD_DX = 15;
     final int FIELD_DY = 15;
     final int LEFT = 37;
@@ -29,6 +33,7 @@ public class GUI extends JFrame implements View {
     JPanel panel = new JPanel();
     JLabel stateLabel;
     JLabel scoreLabel;
+    JLabel pictureLabel;
     Controller controller;
 
     public GUI(Controller _controller) {
@@ -88,10 +93,18 @@ public class GUI extends JFrame implements View {
             buttonExit.setFocusable(false);
         });
 
+        try {
+            Image myPicture = ImageIO.read(new File("/D:/java/lab3/src/main/resources/tetris.jpg")).getScaledInstance(IMAGE_SIZE, IMAGE_SIZE, Image.SCALE_SMOOTH);
+            pictureLabel = new JLabel(new ImageIcon(myPicture));
+        } catch (IOException e) {
+            System.out.println("Impossible to load picture");
+        }
+
         panel.setBounds(START_LOCATION, START_LOCATION,
                 WINDOW_WIDTH * BLOCK_SIZE + FIELD_DX, WINDOW_HEIGHT * BLOCK_SIZE + FIELD_DY);
         panel.setBackground(Color.BLACK);
-        panel.setLayout(new GridLayout(0, 1, 0, 20));
+        panel.setLayout(new GridLayout(0, 1, 0, 5));
+        if (pictureLabel != null) panel.add(pictureLabel);
         panel.add(stateLabel);
         panel.add(scoreLabel);
         panel.add(buttonAbout);

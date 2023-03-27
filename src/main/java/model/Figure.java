@@ -24,11 +24,12 @@ public class Figure {
         field = _field;
         int type = random.nextInt(NUMBER_OF_TYPES);
         FigureTemplate template = (FigureTemplate) Factory.getFigure(type);
-        System.out.println("good" + template.getSize());
-        shape = template.getShape();
-        size = template.getSize();
-        color = template.getColor();
-        createFromTemplate();
+        if (template != null) {
+            shape = template.getShape();
+            size = template.getSize();
+            color = template.getColor();
+            createFromTemplate();
+        }
     }
 
     private void createFromTemplate() {

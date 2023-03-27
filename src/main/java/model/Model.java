@@ -15,27 +15,27 @@ public class Model extends Thread {
     final int LEFT = 37;
     final int RIGHT = 39;
     private int gameScore = 0;
-    final int SHOW_DELAY = 400;
+    int delay = 400;
     private final int[][] field = new int[FIELD_HEIGHT + 1][FIELD_WIDTH];
     private Figure currentFigure;
     volatile private boolean gameOver;
     volatile private boolean gameState;
     final int[] SCORES = {100, 300, 700, 1500};
-    LeaderBoard leaderBoard;
+    final double[] BOOST = {1.05, 1.1, 1.15, 1.2};
+    LeaderBoard leaderBoard = new LeaderBoard();
     LeaderBoardAdder leaderBoardAdder = new LeaderBoardAdder();
     View view;
-    //private final Thread gameThread;
     public Model(View _view) {
         view = _view;
-        leaderBoard = new LeaderBoard();
         try {
             Factory.getInstance();
             Arrays.fill(field[FIELD_HEIGHT], 1); //the invisible floor is full
             createNewFigure();
             gameOver = false;
             view.update(field, gameOver, currentFigure, gameScore, gameState);
-        } catch (FactoryException e) {
-            System.out.println(e.getMessage());
+        }catch (FactoryException e) {
+            System.out.println("Factory error *************");
+            System.exit(-1);
         }
         gameState = true;
         gameOver = false;
@@ -43,7 +43,6 @@ public class Model extends Thread {
         this.start();
         System.out.println("RUN");
     }
-
 
     public boolean isGameOver() {
         return gameOver;
@@ -73,6 +72,7 @@ public class Model extends Thread {
         }
         if (countFillRows > 0) {
             gameScore += SCORES[countFillRows - 1];
+            delay = (int) (delay / BOOST[countFillRows - 1]);
             view.changeTitle("TETRIS" + " : " + gameScore);
             view.changeScores(gameScore);
         }
@@ -162,7 +162,7 @@ public class Model extends Thread {
     public void run() {
         while (!Thread.currentThread().isInterrupted()) {
             try {
-                sleep(SHOW_DELAY);
+                sleep(delay);
             } catch (InterruptedException e) {
                 System.out.println("Game has been interrupted");
                 //break;
