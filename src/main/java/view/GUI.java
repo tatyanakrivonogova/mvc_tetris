@@ -120,6 +120,7 @@ public class GUI extends JFrame implements View {
         add(panel);
         pack();
         setVisible(true);
+        setAlwaysOnTop(true);
     }
     @Override
     public void update(int[][] field, boolean gameOver, Figure figure, int scores, boolean state) {

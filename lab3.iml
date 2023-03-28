@@ -11,5 +11,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="1stleg.jnativehook" level="project" />
+    <orderEntry type="library" name="Maven: com.1stleg:jnativehook:2.1.0" level="project" />
   </component>
 </module>

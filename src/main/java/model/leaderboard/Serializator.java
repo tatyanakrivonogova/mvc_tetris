@@ -5,8 +5,7 @@ import java.util.Properties;
 
 public class Serializator {
     String fileName = "leaderboard.properties";
-    public boolean serialize(Properties properties) {
-        boolean flag = false;
+    public void serialize(Properties properties) throws InvalidObjectException {
         File file = new File(fileName);
         FileOutputStream fos = null;
         try {
@@ -17,12 +16,11 @@ public class Serializator {
         try (ObjectOutputStream oos = new ObjectOutputStream(fos)) {
             if (fos != null) {
                 oos.writeObject(properties);
-                flag = true;
             }
         } catch (IOException e) {
             e.printStackTrace();
+            throw new InvalidObjectException("Serialization error");
         }
-        return flag;
     }
     public Properties deserialize() throws InvalidObjectException {
         File file = new File (fileName);

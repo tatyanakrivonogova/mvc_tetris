@@ -114,7 +114,7 @@ public class Model extends Thread {
         createNewFigure();
         gameOver = false;
     }
-    public void addScoresToLeaderBoard() {
+    public void addScoresToLeaderBoard() throws InvalidObjectException {
         String name = view.getName();
         leaderBoardAdder.addToLeaderBoard(leaderBoard, gameScore, name);
     }
@@ -177,13 +177,17 @@ public class Model extends Thread {
                 try {
                     createNewFigure();
                 } catch (FactoryException e) {
-                    System.out.println(e.getMessage());
-                    System.exit(-1);
+                    System.err.println(e.getMessage());
+                    exitGame();
                 }
                 gameOver = currentFigure.isCrossGround();
                 if (gameOver) {
                     view.update(field, gameOver, currentFigure, gameScore, gameState);
-                    addScoresToLeaderBoard();
+                    try {
+                        addScoresToLeaderBoard();
+                    } catch (InvalidObjectException e) {
+                        System.err.println("Failed to add record");
+                    }
                 }
             } else {
                 currentFigure.stepDown();
