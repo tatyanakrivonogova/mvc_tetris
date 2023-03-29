@@ -42,7 +42,7 @@ public class GUI extends JFrame implements View {
         canvas = new Canvas();
 
         setTitle("TETRIS 0");
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         setBounds(START_LOCATION, START_LOCATION,
                 WINDOW_WIDTH * BLOCK_SIZE + FIELD_DX, WINDOW_HEIGHT * BLOCK_SIZE + FIELD_DY);
         setResizable(false);
@@ -56,6 +56,17 @@ public class GUI extends JFrame implements View {
                 if (e.getKeyCode() == UP) controller.up();
                 if (e.getKeyCode() == LEFT) controller.left();
                 if (e.getKeyCode() == RIGHT) controller.right();
+            }
+        });
+        addWindowListener(new WindowListener() {
+            public void windowActivated(WindowEvent event) {}
+            public void windowClosed(WindowEvent event) {}
+            public void windowDeactivated(WindowEvent event) {}
+            public void windowDeiconified(WindowEvent event) {}
+            public void windowIconified(WindowEvent event) {}
+            public void windowOpened(WindowEvent event) {}
+            public void windowClosing(WindowEvent event) {
+                controller.clickExit();
             }
         });
 

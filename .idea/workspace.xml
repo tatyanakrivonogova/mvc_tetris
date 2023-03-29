@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5500570f-2fc7-4b20-9a65-3f3fed385f1d" name="Changes" comment="added command prompt args and handler of serializator exceptions">
+    <list default="true" id="5500570f-2fc7-4b20-9a65-3f3fed385f1d" name="Changes" comment="fixed threads finishing)))">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/leaderboard.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardAdder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardAdder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/leaderboard/Serializator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/leaderboard/Serializator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/KeyListenerTUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/KeyListenerTUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -276,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680012402023</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="fixed threads finishing)))">
+      <created>1680096661651</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1680096661651</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -349,20 +358,129 @@
     <MESSAGE value="added serialization" />
     <MESSAGE value="added system.exit(0) in main, tui reaction on keys doesn't work" />
     <MESSAGE value="added command prompt args and handler of serializator exceptions" />
-    <option name="LAST_COMMIT_MESSAGE" value="added command prompt args and handler of serializator exceptions" />
+    <MESSAGE value="fixed threads finishing)))" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed threads finishing)))" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/model/Model.java</url>
-          <line>115</line>
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/view/KeyListenerTUI.java</url>
           <line>33</line>
           <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardAdder.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardAdder.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardAdder.java</url>
+          <line>7</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardAdder.java</url>
+          <line>8</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardCreator.java</url>
+          <line>9</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardCreator.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardCreator.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardCreator.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardAdder.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/Serializator.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/Serializator.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/Serializator.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/Serializator.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/Serializator.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/Serializator.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoard.java</url>
+          <line>8</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoard.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardCreator.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardCreator.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardCreator.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoard.java</url>
+          <line>6</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/Serializator.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="76" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

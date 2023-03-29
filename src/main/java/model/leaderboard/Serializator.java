@@ -4,8 +4,9 @@ import java.io.*;
 import java.util.Properties;
 
 public class Serializator {
-    String fileName = "leaderboard.properties";
+    String fileName = "src/main/resources/leaderboard.properties";
     public void serialize(Properties properties) throws InvalidObjectException {
+
         File file = new File(fileName);
         FileOutputStream fos = null;
         try {
@@ -24,18 +25,14 @@ public class Serializator {
     }
     public Properties deserialize() throws InvalidObjectException {
         File file = new File (fileName);
-        FileInputStream fis = null;
-        try {
-            fis = new FileInputStream(file);
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))){
+            return (Properties) ois.readObject();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        try (ObjectInputStream ois = new ObjectInputStream(fis)){
-            if (fis != null) {
-                return (Properties) ois.readObject();
-            }
+            throw new InvalidObjectException("Deserialization error");
+        } catch (EOFException e) {
+            return new Properties();
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+            System.err.println("Deserialization error");
         }
         throw new InvalidObjectException("Deserialization error");
     }

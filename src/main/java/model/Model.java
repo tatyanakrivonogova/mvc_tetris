@@ -39,7 +39,6 @@ public class Model extends Thread {
         gameOver = false;
 
         this.start();
-        System.out.println("RUN");
     }
 
     public boolean isGameOver() {
@@ -157,12 +156,10 @@ public class Model extends Thread {
     }
     @Override
     public void run() {
-        while (/*!Thread.currentThread().isInterrupted()*/ !interrupted()) {
-            System.out.println("WORK");
+        while (!Thread.currentThread().isInterrupted()) {
             try {
                 sleep(currentDelay);
             } catch (InterruptedException e) {
-                System.out.println("Game has been interrupted");
                 interrupt();
             }
             if (!gameState) continue;
@@ -190,6 +187,5 @@ public class Model extends Thread {
                 currentFigure.stepDown();
             }
         }
-        System.out.println("END");
     }
 }

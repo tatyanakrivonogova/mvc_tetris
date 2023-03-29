@@ -3,7 +3,6 @@ import java.io.InvalidObjectException;
 import java.util.Properties;
 
 public class LeaderBoard {
-
     public Properties getProperties() throws InvalidObjectException {
         Serializator serializator = new Serializator();
         try {

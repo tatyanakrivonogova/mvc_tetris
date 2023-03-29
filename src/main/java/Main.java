@@ -9,8 +9,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         Controller controller = new Controller();
-        System.out.println("BEFORE VIEW");
-        System.out.println(Thread.getAllStackTraces());
         View view;
         if (args.length > 0 && (Objects.equals(args[0], "g") || Objects.equals(args[0], "G"))) {
             view = new GUI(controller);

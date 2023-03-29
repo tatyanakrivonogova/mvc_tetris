@@ -13,10 +13,11 @@ public class LeaderBoardCreator {
         }
         StringBuilder message = new StringBuilder();
         int counter = 0;
+        int limit = Math.min(sortedMap.size(), 5);
         for (String key : sortedMap.keySet()) {
             message.append(key).append(" : ").append(sortedMap.get(key)).append('\n');
             ++counter;
-            if (counter == 5) break;
+            if (counter == limit) break;
         }
         return message.toString();
     }
