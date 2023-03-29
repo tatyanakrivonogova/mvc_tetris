@@ -9,6 +9,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         Controller controller = new Controller();
+        System.out.println("BEFORE VIEW");
+        System.out.println(Thread.getAllStackTraces());
         View view;
         if (args.length > 0 && (Objects.equals(args[0], "g") || Objects.equals(args[0], "G"))) {
             view = new GUI(controller);
@@ -29,9 +31,5 @@ public class Main {
         Model game = new Model(view);
         controller.setGame(game);
         game.join();
-
-        System.out.println("AFTER JOIN");
-        System.out.println(Thread.activeCount());
-        //System.exit(0);
     }
 }

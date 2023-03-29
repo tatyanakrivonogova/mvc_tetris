@@ -43,51 +43,5 @@ public class KeyListenerTUI extends Thread {
             }
         }
         System.out.println("END");
-
     }
 }
-
-
-//import controller.Controller;
-//import org.jnativehook.GlobalScreen;
-//import org.jnativehook.NativeHookException;
-//import org.jnativehook.keyboard.NativeKeyEvent;
-//import org.jnativehook.keyboard.NativeKeyListener;
-//
-//import java.util.Scanner;
-//
-//public class KeyListenerTUI implements NativeKeyListener {
-//    final int LEFT = 37;
-//    final int UP = 38;
-//    final int RIGHT = 39;
-//    final int DOWN = 40;
-//    private static boolean running = true;
-//    Controller controller;
-//    Scanner scan;
-//    public KeyListenerTUI(Controller _controller) {
-//        scan = new Scanner(System.in);
-//        controller = _controller;
-//    }
-//    public void setRunning(boolean _running) {
-//        running = _running;
-//    }
-//
-////    public static void main(String[] args) throws IOException {
-////        for (Handler handler : Logger.getLogger("").getHandlers()) handler.setLevel(Level.OFF);
-////
-////        try { GlobalScreen.registerNativeHook(); } catch (NativeHookException ex) { System.exit(1); }
-////        GlobalScreen.addNativeKeyListener(new Test0());
-////    }
-//
-//    public void nativeKeyPressed(NativeKeyEvent e) {
-//        if (running) {
-//            if (e.getKeyCode() == DOWN) controller.down();
-//            if (e.getKeyCode() == UP) controller.up();
-//            if (e.getKeyCode() == LEFT) controller.left();
-//            if (e.getKeyCode() == RIGHT) controller.right();
-//        }
-//    }
-//    public void nativeKeyReleased(NativeKeyEvent e) {    }
-//    public void nativeKeyTyped(NativeKeyEvent e) {    }
-//
-//}

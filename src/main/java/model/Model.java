@@ -15,7 +15,7 @@ public class Model extends Thread {
     final int LEFT = 37;
     final int RIGHT = 39;
     private int gameScore = 0;
-    int delay = 400;
+    int currentDelay = 400;
     private final int[][] field = new int[FIELD_HEIGHT + 1][FIELD_WIDTH];
     private Figure currentFigure;
     volatile private boolean gameOver;
@@ -31,10 +31,8 @@ public class Model extends Thread {
             Factory.getInstance();
             Arrays.fill(field[FIELD_HEIGHT], 1); //the invisible floor is full
             createNewFigure();
-            gameOver = false;
             view.update(field, gameOver, currentFigure, gameScore, gameState);
         }catch (FactoryException e) {
-            System.out.println("Factory error *************");
             System.exit(-1);
         }
         gameState = true;
@@ -72,7 +70,7 @@ public class Model extends Thread {
         }
         if (countFillRows > 0) {
             gameScore += SCORES[countFillRows - 1];
-            delay = (int) (delay / BOOST[countFillRows - 1]);
+            currentDelay = (int) (currentDelay / BOOST[countFillRows - 1]);
             view.changeTitle("TETRIS" + " : " + gameScore);
             view.changeScores(gameScore);
         }
@@ -101,7 +99,7 @@ public class Model extends Thread {
         gameState = false;
         view.changeState(gameState);
     }
-    public void pauseOff() {
+    public void resumeGame() {
         gameState = true;
         view.changeState(gameState);
     }
@@ -121,7 +119,7 @@ public class Model extends Thread {
     public void about() {
         pause();
         view.showAbout();
-        pauseOff();
+        resumeGame();
     }
     public void highScores() {
         pause();
@@ -130,12 +128,12 @@ public class Model extends Thread {
         } catch (InvalidObjectException e) {
             System.out.println("Impossible to load high scores");
         }
-        pauseOff();
+        resumeGame();
     }
     public void newGame() {
         pause();
         if (!view.showNewGame()) {
-            pauseOff();
+            resumeGame();
             return;
         }
         try {
@@ -145,27 +143,26 @@ public class Model extends Thread {
             System.exit(0);
         }
         view.changeScores(0);
-        pauseOff();
+        resumeGame();
     }
     public void exitGame() {
         pause();
         if (!view.showExit()) {
-            pauseOff();
+            resumeGame();
             return;
         }
 
         view.closeGame();
         this.interrupt();
-        //Thread.currentThread().interrupt();
     }
     @Override
     public void run() {
-        while (!Thread.currentThread().isInterrupted()) {
+        while (/*!Thread.currentThread().isInterrupted()*/ !interrupted()) {
+            System.out.println("WORK");
             try {
-                sleep(delay);
+                sleep(currentDelay);
             } catch (InterruptedException e) {
                 System.out.println("Game has been interrupted");
-                //break;
                 interrupt();
             }
             if (!gameState) continue;

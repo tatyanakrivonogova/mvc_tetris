@@ -4,17 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5500570f-2fc7-4b20-9a65-3f3fed385f1d" name="Changes" comment="added system.exit(0) in main, tui reaction on keys doesn't work">
+    <list default="true" id="5500570f-2fc7-4b20-9a65-3f3fed385f1d" name="Changes" comment="added command prompt args and handler of serializator exceptions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lab3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Model.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardAdder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardAdder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/leaderboard/Serializator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/leaderboard/Serializator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/KeyListenerTUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/KeyListenerTUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/TUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/TUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,7 +269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679920709607</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="added command prompt args and handler of serializator exceptions">
+      <created>1680012402023</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1680012402023</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -345,25 +348,21 @@
     <MESSAGE value="threads don't finish" />
     <MESSAGE value="added serialization" />
     <MESSAGE value="added system.exit(0) in main, tui reaction on keys doesn't work" />
-    <option name="LAST_COMMIT_MESSAGE" value="added system.exit(0) in main, tui reaction on keys doesn't work" />
+    <MESSAGE value="added command prompt args and handler of serializator exceptions" />
+    <option name="LAST_COMMIT_MESSAGE" value="added command prompt args and handler of serializator exceptions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/model/Model.java</url>
-          <line>117</line>
+          <line>115</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/view/KeyListenerTUI.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
           <line>33</line>
-          <option name="timeStamp" value="43" />
+          <option name="timeStamp" value="42" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

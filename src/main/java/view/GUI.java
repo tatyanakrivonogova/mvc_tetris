@@ -42,7 +42,7 @@ public class GUI extends JFrame implements View {
         canvas = new Canvas();
 
         setTitle("TETRIS 0");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setBounds(START_LOCATION, START_LOCATION,
                 WINDOW_WIDTH * BLOCK_SIZE + FIELD_DX, WINDOW_HEIGHT * BLOCK_SIZE + FIELD_DY);
         setResizable(false);
@@ -145,12 +145,13 @@ public class GUI extends JFrame implements View {
         name = (name.length() > NAME_LIMIT) ? name.substring(0, NAME_LIMIT) : name;
         return name;
     }
-    public void closeGame() {
-        dispose();
-    }
     @Override
     public void changeTitle(String title) {
         setTitle(title);
+    }
+    public void closeGame() {
+        for (Frame frame : getFrames()) frame.dispose();
+        dispose();
     }
     public void showAbout() {
         String message = """
