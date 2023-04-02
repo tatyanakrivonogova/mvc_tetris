@@ -146,11 +146,11 @@ public class KeyListenerTUI {
         Thread thread = new Thread(() -> {
             KeyStroke keyStroke = null;
             while(true) {
-                 if (!running) return;
+                if (!running) return;
                 try {
                     keyStroke = keyStrokeProducer.readInput();
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    System.out.println("Error while reading");
                 }
 
                 if (keyStroke != null) {
@@ -170,19 +170,47 @@ public class KeyListenerTUI {
         thread.start();
     }
     public boolean getReply() {
+        running = false;
         try {
             KeyStroke keyStroke = keyStrokeProducer.readInput();
             return keyStroke.getCharacter().equals('y');
         } catch (IOException e) {
             System.out.println("Error during reply");
         }
+        running = true;
         return false;
     }
     public void getAnyKey() {
+        running = false;
         try {
             keyStrokeProducer.readInput();
         } catch (IOException e) {
             System.out.println("Error during reply");
         }
+        running = true;
+    }
+    public String getName() {
+        running = false;
+        StringBuilder name = new StringBuilder();
+        KeyStroke keyStroke = null;
+        try {
+            keyStroke = keyStrokeProducer.readInput();
+        } catch (IOException e) {
+            System.out.println("Error while getting name");
+        }
+        while (keyStroke != null && !(keyStroke.getKeyType() == KeyType.Enter)) {
+            if (keyStroke.getCharacter() != null) {
+                name.append(keyStroke.getCharacter());
+                keyStrokeProducer.printChar(keyStroke.getCharacter());
+                keyStrokeProducer.addToScreen();
+            }
+            try {
+                keyStroke = keyStrokeProducer.readInput();
+            } catch (IOException e) {
+                System.out.println("Error while getting name");
+            }
+        }
+        running = true;
+        return name.toString();
     }
 }

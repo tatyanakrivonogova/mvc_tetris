@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5500570f-2fc7-4b20-9a65-3f3fed385f1d" name="Changes" comment="fixed serialization for empty file, changed closing game on krestik">
+    <list default="true" id="5500570f-2fc7-4b20-9a65-3f3fed385f1d" name="Changes" comment="new TUI with lanterna">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lab3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/KeyListenerTUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/KeyListenerTUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/TUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/TUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/View.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/leaderboard.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/leaderboard.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,22 +68,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "D:/java/tetris_example",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/java/tetris_example&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\java\lab3\src\main\java\view\TUI" />
@@ -295,7 +289,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680102380602</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="new TUI with lanterna">
+      <created>1680427036338</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1680427036338</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -370,7 +371,8 @@
     <MESSAGE value="added command prompt args and handler of serializator exceptions" />
     <MESSAGE value="fixed threads finishing)))" />
     <MESSAGE value="fixed serialization for empty file, changed closing game on krestik" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed serialization for empty file, changed closing game on krestik" />
+    <MESSAGE value="new TUI with lanterna" />
+    <option name="LAST_COMMIT_MESSAGE" value="new TUI with lanterna" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -492,6 +494,21 @@
           <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/Serializator.java</url>
           <line>28</line>
           <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/view/KeyListenerTUI.java</url>
+          <line>175</line>
+          <option name="timeStamp" value="82" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/view/KeyListenerTUI.java</url>
+          <line>177</line>
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/view/KeyListenerTUI.java</url>
+          <line>180</line>
+          <option name="timeStamp" value="84" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

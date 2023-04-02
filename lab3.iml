@@ -14,5 +14,6 @@
     <orderEntry type="library" name="1stleg.jnativehook" level="project" />
     <orderEntry type="library" name="src" level="project" />
     <orderEntry type="library" name="googlecode.lanterna" level="project" />
+    <orderEntry type="library" name="Maven: com.googlecode.lanterna:lanterna:3.0.3" level="project" />
   </component>
 </module>

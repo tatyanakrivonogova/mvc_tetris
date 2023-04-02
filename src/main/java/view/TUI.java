@@ -18,7 +18,7 @@ import com.googlecode.lanterna.terminal.swing.SwingTerminalFrame;
 import java.io.IOException;
 import java.util.Properties;
 
-import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public class TUI implements View {
     final int NAME_LIMIT = 30;
@@ -39,9 +39,11 @@ public class TUI implements View {
         controller = _controller;
         DefaultTerminalFactory defaultTerminalFactory = new DefaultTerminalFactory();
         defaultTerminalFactory.setInitialTerminalSize(new TerminalSize(FIELD_HEIGHT*5, FIELD_WIDTH*5));
+
         try {
             terminal = defaultTerminalFactory.createTerminal();
-            closeOnExitInCaseOfASwingTerminal(terminal);
+            terminal.enterPrivateMode();
+            setCloseOnExit(terminal);
             screen = new TerminalScreen(terminal);
             tGraphics = screen.newTextGraphics();
             screen.startScreen();
@@ -73,10 +75,11 @@ public class TUI implements View {
         }
 
         printChar(' ');
-        for (int i = 0; i < FIELD_WIDTH; ++i) printChar('_');
+        for (int i = 0; i < FIELD_WIDTH*2; ++i) printChar('_');
         printChar('\n');
         for (int i = 0; i < FIELD_HEIGHT; ++i) {
             printChar('|');
+            printChar(' ');
             for (int j = 0; j < FIELD_WIDTH; ++j) {
                 boolean fill = (field[i][j] != 0);
                 for (Block block : figure.getFigure()) {
@@ -85,17 +88,19 @@ public class TUI implements View {
                         break;
                     }
                 }
-                printChar(fill ? '+' : ' ');
+                printChar(fill ? '#' : ' ');
+                printChar(' ');
             }
             printChar('|');
             printChar('\n');
         }
         printChar('|');
-        for (int i = 0; i < FIELD_WIDTH; ++i) printChar('_');
+        for (int i = 0; i < FIELD_WIDTH*2; ++i) printChar('_');
+        printChar(' ');
         printChar('|');
         updateScreen();
     }
-    private void printChar(Character c) {
+    public void printChar(Character c) {
         if (c == '\n') {
             currentY += 1;
             currentX = 0;
@@ -105,9 +110,12 @@ public class TUI implements View {
         currentX += 1;
     }
     private void printString(String s) {
-        tGraphics.putString(currentX, currentY, s);
-        currentX = 0;
-        currentY += 1;
+        String[] strings = s.split("\n");
+        for (String string : strings) {
+            tGraphics.putString(currentX, currentY, string);
+            currentX = 0;
+            currentY += 1;
+        }
     }
     private void updateScreen() {
         try {
@@ -117,6 +125,13 @@ public class TUI implements View {
         }
         currentX = 0;
         currentY = 0;
+    }
+    public void addToScreen() {
+        try {
+            screen.refresh();
+        } catch (IOException e) {
+            System.out.println("IOException");
+        }
     }
     public void changeScores(int _scores) {
         scores = _scores;
@@ -152,14 +167,25 @@ public class TUI implements View {
     }
     public void showAbout() {
         screen.clear();
-        printString("W       rotate figure");
-        printString("D       move figure to right side");
-        printString("A       move figure to left side");
-        printString("X       drop figure");
-        printString("E       about");
-        printString("R       high records");
-        printString("SPACE   new game");
-        printString("Q       exit");
+        String message = """
+            UP
+                rotate figure
+            RIGHT
+                move figure to right side
+            LEFT
+                move figure to left side
+            DOWN
+                drop figure
+            W       rotate figure
+            D       move figure to right side
+            A       move figure to left side
+            X       drop figure
+            E       about
+            R       high records
+            SPACE   new game
+            Q       exit
+        """;
+        printString(message);
 
         printString("Enter any key to continue");
         updateScreen();
@@ -191,146 +217,20 @@ public class TUI implements View {
 
     @Override
     public String getName() {
+        screen.clear();
         printString("Enter your name:");
-        String name = "";
+        updateScreen();
+        String name = keyListener.getName();
         name = (name.length() > NAME_LIMIT) ? name.substring(0, NAME_LIMIT) : name;
         return name;
     }
 
-    private void closeOnExitInCaseOfASwingTerminal(Terminal terminal) {
+    private void setCloseOnExit(Terminal terminal) {
         if(terminal instanceof SwingTerminalFrame) {
-            ((SwingTerminalFrame) terminal).setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            ((SwingTerminalFrame) terminal).setDefaultCloseOperation(EXIT_ON_CLOSE);
         }
     }
-    public KeyStroke pollInput() throws IOException {
-        return terminal.pollInput();
-    }
-
     public KeyStroke readInput() throws IOException {
         return terminal.readInput();
     }
 }
-
-//import com.googlecode.lanterna.TerminalSize;
-//import com.googlecode.lanterna.input.KeyStroke;
-//import com.googlecode.lanterna.screen.Screen;
-//import com.googlecode.lanterna.screen.TerminalScreen;
-//import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
-//import com.googlecode.lanterna.terminal.Terminal;
-//import com.googlecode.lanterna.terminal.swing.SwingTerminalFrame;
-//import model.Figure;
-//
-//import java.io.IOException;
-//import java.util.ArrayList;
-//import java.util.Collection;
-//import java.util.List;
-//import java.util.Properties;
-//
-//import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
-//
-//public class TUI implements View {
-//    private Screen screen;
-//    private List<DrawPoints> toDraw;
-//    private Terminal terminal;
-//
-//    public TUI() throws IOException {
-//        DefaultTerminalFactory defaultTerminalFactory = new DefaultTerminalFactory();
-//        defaultTerminalFactory.setInitialTerminalSize(new TerminalSize(10, 20));
-//
-//        terminal = defaultTerminalFactory.createTerminal();
-//        closeOnExitInCaseOfASwingTerminal(terminal);
-//        screen = new TerminalScreen(terminal);
-//        screen.startScreen();
-//        screen.setCursorPosition(null);
-//
-//        toDraw = new ArrayList<>();
-//    }
-//
-//    public void add(Collection<DrawPoints> points) {
-//        toDraw.addAll(points);
-//    }
-//
-//    public void add(DrawPoints point) {
-//        toDraw.add(point);
-//    }
-//
-//    public void draw() throws IOException {
-//        screen.clear();
-//        for(DrawPoints dp : toDraw) {
-//            for(Point p : dp.points) {
-//                screen.setCharacter(p.x, p.y, dp.character);
-//            }
-//        }
-//        screen.refresh();
-//        toDraw.clear();
-//    }
-//
-//    public KeyStroke pollInput() throws IOException {
-//        return terminal.pollInput();
-//    }
-//
-//    public KeyStroke readInput() throws IOException {
-//        return terminal.readInput();
-//    }
-//
-//    private void closeOnExitInCaseOfASwingTerminal(Terminal terminal) {
-//        if(terminal instanceof SwingTerminalFrame) {
-//            ((SwingTerminalFrame) terminal).setDefaultCloseOperation(EXIT_ON_CLOSE);
-//        }
-//    }
-//
-//    @Override
-//    public void update(int[][] field, boolean gameOver, Figure figure, int scores, boolean state) {
-//
-//    }
-//
-//    @Override
-//    public void showAbout() {
-//
-//    }
-//
-//    @Override
-//    public void showHighScores(Properties properties) {
-//
-//    }
-//
-//    @Override
-//    public boolean showNewGame() {
-//        return false;
-//    }
-//
-//    @Override
-//    public boolean showExit() {
-//        return false;
-//    }
-//
-//    @Override
-//    public String getName() {
-//        return null;
-//    }
-//
-//    @Override
-//    public void changeTitle(String title) {
-//
-//    }
-//
-//    @Override
-//    public void changeScores(int scores) {
-//
-//    }
-//
-//    @Override
-//    public void changeState(boolean state) {
-//
-//    }
-//
-//    @Override
-//    public void closeGame() {
-//
-//    }
-//
-//    @Override
-//    public void showLeaderBoardError() {
-//
-//    }
-//}
