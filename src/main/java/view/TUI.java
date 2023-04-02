@@ -67,7 +67,7 @@ public class TUI implements View {
         else {
             printString("PAUSE");
         }
-        printString("SCORES" + scores);
+        printString("SCORES " + scores);
 
         if (gameOver) {
             printString("GAME OVER!");
