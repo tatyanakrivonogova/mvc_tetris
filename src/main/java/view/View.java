@@ -15,4 +15,5 @@ public interface View {
     void changeScores(int scores);
     void changeState(boolean state);
     void closeGame();
+    void showLeaderBoardError();
 }

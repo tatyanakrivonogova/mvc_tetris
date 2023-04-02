@@ -12,6 +12,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="1stleg.jnativehook" level="project" />
-    <orderEntry type="library" name="Maven: com.1stleg:jnativehook:2.1.0" level="project" />
+    <orderEntry type="library" name="src" level="project" />
+    <orderEntry type="library" name="googlecode.lanterna" level="project" />
   </component>
 </module>

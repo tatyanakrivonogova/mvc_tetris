@@ -164,6 +164,12 @@ public class GUI extends JFrame implements View {
         for (Frame frame : getFrames()) frame.dispose();
         dispose();
     }
+
+    @Override
+    public void showLeaderBoardError() {
+        JOptionPane.showMessageDialog(new JFrame(), "Failed to add record!", "About", ERROR_MESSAGE);
+    }
+
     public void showAbout() {
         String message = """
             UP      rotate figure

@@ -32,7 +32,5 @@ public class Controller {
         game.newGame();
     }
 
-    public void clickExit() {
-        game.exitGame();
-    }
+    public void clickExit() { game.exitGame(); }
 }

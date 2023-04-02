@@ -180,7 +180,8 @@ public class Model extends Thread {
                     try {
                         addScoresToLeaderBoard();
                     } catch (InvalidObjectException e) {
-                        System.err.println("Failed to add record");
+                        //System.err.println("Failed to add record");
+                        view.showLeaderBoardError();
                     }
                 }
             } else {
