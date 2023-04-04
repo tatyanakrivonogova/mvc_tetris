@@ -4,239 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5500570f-2fc7-4b20-9a65-3f3fed385f1d" name="Changes" comment="fixed TUI, get name works very slow(">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/1stleg_jnativehook.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_lanterna_lanterna_3_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/googlecode_lanterna.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/Makefile.win" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/build.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/.keepme" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/allclasses-frame.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/allclasses-noframe.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/constant-values.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/deprecated-list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/help-doc.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/index-all.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/event/ActionEvent.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/event/ActionListener.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/event/ActionListenerManager.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/event/Event.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/event/ItemEvent.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/event/ItemListener.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/event/ItemListenerManager.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/event/Listener.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/event/ListenerManager.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/event/ValueChangedEvent.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/event/ValueChangedListener.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/event/ValueChangedListenerManager.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/event/WindowEvent.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/event/WindowListener.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/event/WindowListenerManager.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/event/package-frame.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/event/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/event/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/system/CharColor.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/system/InputChar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/system/Toolkit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/system/package-frame.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/system/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/system/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/util/Message.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/util/Paging.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/util/Profiler.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/util/Protocol.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/util/Rectangle.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/util/ScrollbarUtils.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/util/package-frame.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/util/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/util/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/BorderLayoutManager.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/BorderPanel.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/Button.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/CheckBox.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/DefaultFileFilterFactory.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/DefaultLayoutManager.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/Dialog.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/FileDialog.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/Grid.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/GridLayoutManager.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/IScrollable.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/JCursesFileFilterFactory.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/Label.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/LayoutConstraint.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/LayoutManager.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/List.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/MenuList.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/Panel.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/PasswordField.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/PopUpList.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/PopUpMenu.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/RadioButton.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/ScrollbarPainter.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/TextArea.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/TextComponent.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/TextField.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/ToggleButton.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/ToggleButtonGroup.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/Widget.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/WidgetContainer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/WidgetUtilities.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/WidgetsConstants.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/Window.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/package-frame.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/jcurses/widgets/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/overview-frame.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/overview-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/overview-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/package-list" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/packages.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/resources/background.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/resources/tab.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/resources/titlebar.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/resources/titlebar_end.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/serialized-form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/doc/stylesheet.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/lib/libjcurses.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/lib/libjcurses.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/lib/libjcurses64.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/lib/libjcurses64.so" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/event/ActionEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/event/ActionListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/event/ActionListenerManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/event/Event.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/event/ItemEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/event/ItemListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/event/ItemListenerManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/event/Listener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/event/ListenerManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/event/ValueChangedEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/event/ValueChangedListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/event/ValueChangedListenerManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/event/WindowEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/event/WindowListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/event/WindowListenerManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/system/CharColor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/system/InputChar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/system/Toolkit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/util/Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/util/Paging.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/util/Profiler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/util/Protocol.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/util/Rectangle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/util/ScrollbarUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/BorderLayoutConstraint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/BorderLayoutManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/BorderPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/Button.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/CheckBox.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/DefaultFileFilterFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/DefaultLayoutConstraint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/DefaultLayoutManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/Dialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/FileDialog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/Grid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/GridLayoutConstraint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/GridLayoutManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/IScrollable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/JCursesFileFilterFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/Label.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/LayoutConstraint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/LayoutManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/List.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/MenuList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/Panel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/PasswordField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/PopUpList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/PopUpMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/RadioButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/ScrollbarPainter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/TextArea.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/TextComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/TextField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/ToggleButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/ToggleButtonGroup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/Widget.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/WidgetContainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/WidgetUtilities.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/WidgetsConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/Window.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/WindowManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/jcurses/widgets/WindowManagerInputThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/native/Toolkit.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/native/WinToolkit.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/native/WinToolkit.def" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/native/include/.keepme" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcurses-master/jcurses-master/src/native/include/jcurses_system_Toolkit.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/src.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/config.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exceptions/factoryexceptions/ConfigFileNotFound.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exceptions/factoryexceptions/FactoryException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exceptions/factoryexceptions/FigureTemplateClassNotFound.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exceptions/factoryexceptions/UnknownFigureTemplate.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Block.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Figure.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Model$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Model.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/factory/Configuration.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/factory/Factory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/figuretemplates/FigureTemplate.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardAdder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardCreator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/leaderboard/Serializator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/Canvas.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/GUI$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/GUI.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/KeyListenerTUI$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/KeyListenerTUI.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/TUI.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/View.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tetris.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/config.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/controller/Controller.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/exceptions/factoryexceptions/ConfigFileNotFound.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/exceptions/factoryexceptions/FactoryException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/exceptions/factoryexceptions/FigureTemplateClassNotFound.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/exceptions/factoryexceptions/UnknownFigureTemplate.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/leaderboard.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/model/Block.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/model/Figure.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/model/Model.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/model/factory/Configuration.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/model/factory/Factory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/model/figuretemplates/FigureTemplate.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/model/figuretemplates/IFigure.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/model/figuretemplates/JFigure.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/model/figuretemplates/LFigure.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/model/figuretemplates/OFigure.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/model/figuretemplates/SFigure.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/model/figuretemplates/TFigure.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/model/figuretemplates/ZFigure.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/model/leaderboard/LeaderBoard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/model/leaderboard/LeaderBoardAdder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/model/leaderboard/LeaderBoardCreator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/model/leaderboard/Serializator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/tetris.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/view/AboutFrame.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/view/Canvas.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/view/GUI$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/view/GUI$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/view/GUI.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/view/KeyListenerTUI.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/view/TUI.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/view/View.class" afterDir="false" />
+    <list default="true" id="5500570f-2fc7-4b20-9a65-3f3fed385f1d" name="Changes" comment="better TUI with some problems">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/KeyListenerTUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/KeyListenerTUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/TUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/TUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/leaderboard.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/leaderboard.properties" afterDir="false" />
     </list>
@@ -297,21 +67,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/java/tetris_example",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/java/tetris_example&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\java\lab3\src\main\java\view\TUI" />
@@ -539,7 +309,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680452598674</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="better TUI with some problems">
+      <created>1680607783096</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1680607783096</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -592,7 +369,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="something works" />
     <MESSAGE value="fixed game over" />
     <MESSAGE value="need to move key listener from view to controller" />
     <MESSAGE value="key listener moved" />
@@ -617,26 +393,12 @@
     <MESSAGE value="new TUI with lanterna" />
     <MESSAGE value="changed TUI" />
     <MESSAGE value="fixed TUI, get name works very slow(" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed TUI, get name works very slow(" />
+    <MESSAGE value="better TUI with some problems" />
+    <option name="LAST_COMMIT_MESSAGE" value="better TUI with some problems" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardAdder.java</url>
-          <line>10</line>
-          <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardAdder.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="44" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardAdder.java</url>
-          <line>8</line>
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardCreator.java</url>
           <line>9</line>
@@ -661,51 +423,6 @@
           <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardAdder.java</url>
-          <line>9</line>
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/Serializator.java</url>
-          <line>12</line>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/Serializator.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/Serializator.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/Serializator.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="55" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/Serializator.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/Serializator.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="57" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoard.java</url>
-          <line>8</line>
-          <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoard.java</url>
-          <line>10</line>
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardCreator.java</url>
           <line>11</line>
           <option name="timeStamp" value="60" />
@@ -719,31 +436,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardCreator.java</url>
           <line>12</line>
           <option name="timeStamp" value="62" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoard.java</url>
-          <line>6</line>
-          <option name="timeStamp" value="66" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/Serializator.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="76" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/model/Model.java</url>
-          <line>102</line>
-          <option name="timeStamp" value="90" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/model/leaderboard/LeaderBoardAdder.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="98" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/view/KeyListenerTUI.java</url>
-          <line>87</line>
-          <option name="timeStamp" value="103" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/model/Model.java</url>
@@ -761,15 +453,41 @@
           <option name="timeStamp" value="106" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/view/KeyListenerTUI.java</url>
-          <line>58</line>
-          <option name="timeStamp" value="107" />
+          <url>file://$PROJECT_DIR$/src/main/java/model/Model.java</url>
+          <line>182</line>
+          <option name="timeStamp" value="108" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/view/TUI.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="109" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/Model.java</url>
+          <line>135</line>
+          <option name="timeStamp" value="114" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/Model.java</url>
+          <line>134</line>
+          <option name="timeStamp" value="115" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/Model.java</url>
+          <line>136</line>
+          <option name="timeStamp" value="116" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/Model.java</url>
+          <line>139</line>
+          <option name="timeStamp" value="117" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="currentX" language="JAVA" />
+        <watch expression="gameOver" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

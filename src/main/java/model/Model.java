@@ -100,7 +100,7 @@ public class Model extends Thread {
     }
     public void resumeGame() {
         gameState = true;
-        gameOver = false;
+        //gameOver = false;
         view.changeState(gameState);
     }
     public void restart() throws FactoryException {
@@ -182,7 +182,6 @@ public class Model extends Thread {
                     try {
                         addScoresToLeaderBoard();
                     } catch (InvalidObjectException e) {
-                        //System.err.println("Failed to add record");
                         view.showLeaderBoardError();
                     }
                 }

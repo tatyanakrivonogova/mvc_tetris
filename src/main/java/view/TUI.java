@@ -56,7 +56,7 @@ public class TUI implements View {
     @Override
     public void update(int[][] field, boolean gameOver, Figure figure, int scores, boolean state) {
 
-        screen.clear();
+        clearScreen();
         currentX = 0;
         currentY = 0;
         if (gameOver) {
@@ -121,14 +121,17 @@ public class TUI implements View {
             currentY += 1;
         }
     }
+    private void clearScreen() {
+        screen.clear();
+        currentX = 0;
+        currentY = 0;
+    }
     private void updateScreen() {
         try {
             screen.refresh();
         } catch (IOException e) {
             System.out.println("IOException");
         }
-        currentX = 0;
-        currentY = 0;
     }
     public void addToScreen() {
         try {
@@ -159,7 +162,7 @@ public class TUI implements View {
 
     @Override
     public void showLeaderBoardError() {
-        screen.clear();
+        clearScreen();
         printString("Failed to add record!");
         printString("Enter any key to continue");
         updateScreen();
@@ -171,7 +174,7 @@ public class TUI implements View {
         title = _title;
     }
     public void showAbout() {
-        screen.clear();
+        clearScreen();
         String message = """
             UP
                 rotate figure
@@ -198,7 +201,7 @@ public class TUI implements View {
     }
 
     public void showHighScores(Properties properties) {
-        screen.clear();
+        clearScreen();
         LeaderBoardCreator creator = new LeaderBoardCreator();
         printString(creator.createLeaderBoard(properties));
         printString("Enter any key to continue");
@@ -206,13 +209,13 @@ public class TUI implements View {
         keyListener.getAnyKey();
     }
     public boolean showNewGame() {
-        screen.clear();
+        clearScreen();
         String message = "Do you want to start new game? Enter Y or N";
         printString(message);
         updateScreen();
         boolean result = keyListener.getReply();
         if (!result) {
-            screen.clear();
+            clearScreen();
             printString("Game is over! Press ENTER to start new game...");
             updateScreen();
         }
@@ -220,7 +223,7 @@ public class TUI implements View {
     }
     public boolean showExit() {
         keyListener.setRunning(false);
-        screen.clear();
+        clearScreen();
         printString("Do you want to exit? Enter Y or N");
         updateScreen();
         boolean reply = keyListener.getReply();
@@ -230,7 +233,7 @@ public class TUI implements View {
 
     @Override
     public String getName() {
-        screen.clear();
+        clearScreen();
         printString("Enter your name:");
         updateScreen();
         String name = keyListener.getName();
