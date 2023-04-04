@@ -26,7 +26,7 @@ public class TUI implements View {
     final int FIELD_HEIGHT = 18;
     Controller controller;
     int scores;
-    boolean state;
+    volatile boolean state;
     String title;
     private final KeyListenerTUI keyListener;
     private Screen screen;
@@ -59,6 +59,11 @@ public class TUI implements View {
         screen.clear();
         currentX = 0;
         currentY = 0;
+        if (gameOver) {
+            printString("GAME OVER!");
+            printString("YOUR SCORES IS " + scores);
+            return;
+        }
 
         printString("TETRIS");
         if (state) {
@@ -69,16 +74,11 @@ public class TUI implements View {
         }
         printString("SCORES " + scores);
 
-        if (gameOver) {
-            printString("GAME OVER!");
-            return;
-        }
-
         printChar(' ');
-        for (int i = 0; i < FIELD_WIDTH*2; ++i) printChar('_');
+        for (int i = 0; i < FIELD_WIDTH*2; ++i) printChar('━');
         printChar('\n');
         for (int i = 0; i < FIELD_HEIGHT; ++i) {
-            printChar('|');
+            printChar('│');
             printChar(' ');
             for (int j = 0; j < FIELD_WIDTH; ++j) {
                 boolean fill = (field[i][j] != 0);
@@ -88,16 +88,15 @@ public class TUI implements View {
                         break;
                     }
                 }
-                printChar(fill ? '#' : ' ');
+                printChar(fill ? '■' : ' ');
                 printChar(' ');
             }
-            printChar('|');
+            printChar('│');
             printChar('\n');
         }
-        printChar('|');
-        for (int i = 0; i < FIELD_WIDTH*2; ++i) printChar('_');
         printChar(' ');
-        printChar('|');
+        for (int i = 0; i < FIELD_WIDTH*2; ++i) printChar('━');
+        printChar(' ');
         updateScreen();
     }
     public void printChar(Character c) {
@@ -106,7 +105,12 @@ public class TUI implements View {
             currentX = 0;
             return;
         }
-        screen.setCharacter(currentX, currentY, new TextCharacter(c));
+        try {
+            screen.setCharacter(currentX, currentY, new TextCharacter(c));
+        } catch (IllegalArgumentException e) {
+            System.out.println("Impossible to print control character");
+        }
+
         currentX += 1;
     }
     private void printString(String s) {
@@ -141,6 +145,7 @@ public class TUI implements View {
     public void changeState(boolean _state) {
         state = _state;
         keyListener.setRunning(_state);
+        keyListener.listen();
     }
 
     public void closeGame() {
@@ -205,14 +210,22 @@ public class TUI implements View {
         String message = "Do you want to start new game? Enter Y or N";
         printString(message);
         updateScreen();
-        return keyListener.getReply();
+        boolean result = keyListener.getReply();
+        if (!result) {
+            screen.clear();
+            printString("Game is over! Press ENTER to start new game...");
+            updateScreen();
+        }
+        return result;
     }
     public boolean showExit() {
         keyListener.setRunning(false);
         screen.clear();
         printString("Do you want to exit? Enter Y or N");
         updateScreen();
-        return keyListener.getReply();
+        boolean reply = keyListener.getReply();
+        if (reply) keyListener.setRunning(false);
+        return reply;
     }
 
     @Override

@@ -100,6 +100,7 @@ public class Model extends Thread {
     }
     public void resumeGame() {
         gameState = true;
+        gameOver = false;
         view.changeState(gameState);
     }
     public void restart() throws FactoryException {
@@ -114,6 +115,7 @@ public class Model extends Thread {
     public void addScoresToLeaderBoard() throws InvalidObjectException {
         String name = view.getName();
         leaderBoardAdder.addToLeaderBoard(leaderBoard, gameScore, name);
+        newGame();
     }
     public void about() {
         pause();

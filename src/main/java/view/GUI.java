@@ -105,7 +105,7 @@ public class GUI extends JFrame implements View {
         });
 
         try {
-            Image myPicture = ImageIO.read(new File("/D:/java/lab3/src/main/resources/tetris.jpg")).getScaledInstance(IMAGE_SIZE, IMAGE_SIZE, Image.SCALE_SMOOTH);
+            Image myPicture = ImageIO.read(new File("src/main/resources/tetris.jpg")).getScaledInstance(IMAGE_SIZE, IMAGE_SIZE, Image.SCALE_SMOOTH);
             pictureLabel = new JLabel(new ImageIcon(myPicture));
         } catch (IOException e) {
             System.out.println("Impossible to load picture");
