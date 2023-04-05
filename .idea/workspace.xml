@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5500570f-2fc7-4b20-9a65-3f3fed385f1d" name="Changes" comment="better TUI with some problems">
+    <list default="true" id="5500570f-2fc7-4b20-9a65-3f3fed385f1d" name="Changes" comment="fixed problem with gameOver and changed screen.clear()">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/KeyListenerTUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/KeyListenerTUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/TUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/TUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/leaderboard.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/leaderboard.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/leaderboard.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/leaderboard.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Model.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/TUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/TUI.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +105,7 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="lab3" />
-      <option name="PROGRAM_PARAMETERS" value="g" />
+      <option name="PROGRAM_PARAMETERS" value="t" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -316,7 +319,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680607783096</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="fixed problem with gameOver and changed screen.clear()">
+      <created>1680623154925</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1680623154925</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -369,7 +379,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed game over" />
     <MESSAGE value="need to move key listener from view to controller" />
     <MESSAGE value="key listener moved" />
     <MESSAGE value="new game doesn't work without button" />
@@ -394,7 +403,8 @@
     <MESSAGE value="changed TUI" />
     <MESSAGE value="fixed TUI, get name works very slow(" />
     <MESSAGE value="better TUI with some problems" />
-    <option name="LAST_COMMIT_MESSAGE" value="better TUI with some problems" />
+    <MESSAGE value="fixed problem with gameOver and changed screen.clear()" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed problem with gameOver and changed screen.clear()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -459,7 +469,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/view/TUI.java</url>
-          <line>62</line>
+          <line>61</line>
           <option name="timeStamp" value="109" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

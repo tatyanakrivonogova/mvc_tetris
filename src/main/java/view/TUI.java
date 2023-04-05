@@ -15,10 +15,9 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.SwingTerminalFrame;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.util.Properties;
-
-import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public class TUI implements View {
     final int NAME_LIMIT = 30;
@@ -156,6 +155,7 @@ public class TUI implements View {
             terminal.close();
         } catch (IOException e) {
             System.out.println("ERROR DURING CLOSING");
+            e.printStackTrace();
             System.exit(-1);
         }
     }
@@ -236,14 +236,16 @@ public class TUI implements View {
         clearScreen();
         printString("Enter your name:");
         updateScreen();
+        System.out.println("before call " + Thread.getAllStackTraces());
         String name = keyListener.getName();
+        System.out.println("after call " + Thread.getAllStackTraces());
         name = (name.length() > NAME_LIMIT) ? name.substring(0, NAME_LIMIT) : name;
         return name;
     }
 
     private void setCloseOnExit(Terminal terminal) {
         if(terminal instanceof SwingTerminalFrame) {
-            ((SwingTerminalFrame) terminal).setDefaultCloseOperation(EXIT_ON_CLOSE);
+            ((SwingTerminalFrame) terminal).setDefaultCloseOperation(3);
         }
     }
     public KeyStroke readInput() throws IOException {

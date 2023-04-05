@@ -28,9 +28,6 @@ public class Controller {
         game.highScores();
     }
 
-    public void clickNewGame() {
-        game.newGame();
-    }
-
+    public void clickNewGame() { game.newGame(); }
     public void clickExit() { game.exitGame(); }
 }

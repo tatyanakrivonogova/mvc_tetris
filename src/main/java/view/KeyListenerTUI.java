@@ -20,19 +20,19 @@ public class KeyListenerTUI {
     }
     public void setRunning(boolean value) {
         running = value;
-//        if (!value) {
-//            thread.interrupt();
-//        }
     }
     void listen() {
         thread = new Thread(() -> {
             KeyStroke keyStroke = null;
-            while(true) {
+            while(!Thread.currentThread().isInterrupted()) {
                 if (!running) return;
                 try {
                     keyStroke = keyStrokeProducer.readInput();
+                    Thread.sleep(10);
                 } catch (IOException e) {
                     System.out.println("Error while reading");
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
                 }
 
                 if (keyStroke != null) {
@@ -80,10 +80,13 @@ public class KeyListenerTUI {
         StringBuilder name = new StringBuilder();
         KeyStroke keyStroke = null;
         try {
+            System.out.println("3 " + Thread.getAllStackTraces());
             keyStroke = keyStrokeProducer.readInput();
+            System.out.println("4 " + Thread.getAllStackTraces());
         } catch (IOException e) {
             System.out.println("Error while getting name");
         }
+
         while (keyStroke != null && !(keyStroke.getKeyType() == KeyType.Enter)) {
             if (keyStroke.getCharacter() != null) {
                 name.append(keyStroke.getCharacter());
